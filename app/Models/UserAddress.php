@@ -20,4 +20,8 @@ class UserAddress extends Model
         "surname",
     ];
     protected $table = "user_addresses";
+    public function user()
+    {
+        return $this->belongsTo(User::class,"user_id");
+    }
 }

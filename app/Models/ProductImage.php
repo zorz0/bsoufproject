@@ -13,4 +13,8 @@ class ProductImage extends Model
         "image"
     ];
     protected $table = "product_images";
+    public function productSize()
+    {
+        return $this->belongsTo(ProductSize::class,"product_size_id");
+    }
 }

@@ -17,4 +17,8 @@ class ProductSize extends Model
         "status"
     ];
     protected $table = "product_size";
+    public function product()
+    {
+        return $this->belongsTo(Product::class,"product_id");
+    }
 }

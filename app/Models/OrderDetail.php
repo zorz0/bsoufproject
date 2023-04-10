@@ -16,4 +16,12 @@ class OrderDetail extends Model
         "discount"
     ];
     protected $table = "order_details";
+    public function order()
+    {
+        return $this->belongsTo(Order::class,"order_id");
+    }
+    public function productSize()
+    {
+        return $this->belongsTo(ProductSize::class,"product_size_id");
+    }
 }

@@ -25,4 +25,9 @@ class Order extends Model
         "shipping_price"
     ];
     protected $table = "orders";
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

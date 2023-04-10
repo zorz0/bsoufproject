@@ -17,4 +17,12 @@ class Product extends Model
         "category_id"
     ];
     protected $table = "products";
+    public function category()
+    {
+        return $this->belongsTo(Category::class, "category_id");
+    }
+    public function ProductSize()
+    {
+        return $this->hasMany(ProductSize::class);
+    }
 }

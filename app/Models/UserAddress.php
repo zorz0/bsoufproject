@@ -17,7 +17,7 @@ class UserAddress extends Model
         "phone",
         "email",
         "name",
-        "surname"
+        "surname",
     ];
     protected $table = "user_addresses";
 }

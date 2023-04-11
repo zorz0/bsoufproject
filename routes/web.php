@@ -16,7 +16,19 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('home.index');
+    return view('front.home');
+});
+Route::get('/store', function () {
+    return view('front.store');
+});
+Route::get('/news', function () {
+    return view('front.news');
+});
+Route::get('/contact', function () {
+    return view('front.contact');
+});
+Route::get('/about', function () {
+    return view('front.clean');
 });
 Auth::routes();
 

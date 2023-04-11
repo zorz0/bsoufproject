@@ -48,6 +48,8 @@
 </head>
 
 <body class="u-body u-stick-footer u-xl-mode">
+    @extends('layouts.app')
+@section('header')
     <header class="u-clearfix u-header u-image lazyload u-header">
         <a href="#" class="u-align-center u-image u-logo u-image-1">
             <img src="{{asset('/assets/bks/')}}/images/logo.png" class="u-logo-image u-logo-image-1">
@@ -245,7 +247,7 @@
             <p class="u-align-center u-custom-font u-text u-text-body-alt-color u-text-4"> Powered By Banana </p>
         </div>
     </footer>
-
+@endsection
 </body>
 
 </html>

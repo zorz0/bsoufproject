@@ -18,40 +18,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
-    <link href="{{asset('/assets')}}/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+    <link href="{{ asset('/assets') }}/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"
         type="text/css" />
-    <link href="{{asset('/assets')}}/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet"
+    <link href="{{ asset('/assets') }}/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet"
         type="text/css" />
-    <link href="{{asset('/assets')}}/global/plugins/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet"
+    <link href="{{ asset('/assets') }}/global/plugins/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet"
         type="text/css" />
-    <link href="{{asset('/assets')}}/global/plugins/bootstrap-switch/css/bootstrap-switch-rtl.min.css" rel="stylesheet"
-        type="text/css" />
+    <link href="{{ asset('/assets') }}/global/plugins/bootstrap-switch/css/bootstrap-switch-rtl.min.css"
+        rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <link rel="stylesheet" href="{{asset('/assets')}}/global/plugins/dropify/dist/css/dropify.min.css">
+    <link rel="stylesheet" href="{{ asset('/assets') }}/global/plugins/dropify/dist/css/dropify.min.css">
 
-    <link href="{{asset('/assets')}}/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
-    <link href="{{asset('/assets')}}/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets') }}/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets') }}/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css"
+        rel="stylesheet" type="text/css" />
 
-    <link href="{{asset('/assets')}}/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet"
+    <link href="{{ asset('/assets') }}/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets') }}/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets') }}/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet"
         type="text/css" />
-    <link href="{{asset('/assets')}}/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
-    <link href="{{asset('/assets')}}/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet"
-        type="text/css" />
-    <link href="{{asset('/assets')}}/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets') }}/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
-    <link href="{{asset('/assets')}}/global/css/components-md-rtl.min.css" rel="stylesheet" id="style_components"
+    <link href="{{ asset('/assets') }}/global/css/components-md-rtl.min.css" rel="stylesheet" id="style_components"
         type="text/css" />
-    <link href="{{asset('/assets')}}/global/css/plugins-md-rtl.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets') }}/global/css/plugins-md-rtl.min.css" rel="stylesheet" type="text/css" />
     <!-- END THEME GLOBAL STYLES -->
     <!-- BEGIN THEME LAYOUT STYLES -->
-    <link href="{{asset('/assets')}}/layouts/layout/css/layout-rtl.min.css" rel="stylesheet" type="text/css" />
-    <link href="{{asset('/assets')}}/layouts/layout/css/themes/darkblue-rtl.min.css" rel="stylesheet" type="text/css"
+    <link href="{{ asset('/assets') }}/layouts/layout/css/layout-rtl.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets') }}/layouts/layout/css/themes/darkblue-rtl.min.css" rel="stylesheet" type="text/css"
         id="style_color" />
-    <link href="{{asset('/assets')}}/layouts/layout/css/custom-rtl.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets') }}/layouts/layout/css/custom-rtl.min.css" rel="stylesheet" type="text/css" />
     <!-- END THEME LAYOUT STYLES -->
     <link rel="shortcut icon" href="favicon.ico" />
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <!-- END HEAD -->
 
@@ -63,337 +66,27 @@
             <!-- BEGIN LOGO -->
             <div class="page-logo">
                 <a href="index.html">
-                    <img src="{{asset('/assets')}}/images/eclogo-sx.jpg" alt="logo" class="logo-default" /> </a>
+                    <img src="{{ asset('/assets') }}/images/eclogo-sx.jpg" alt="logo" class="logo-default" /> </a>
                 <div class="menu-toggler sidebar-toggler">
                     <span></span>
                 </div>
             </div>
             <!-- END LOGO -->
             <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
+            {{-- <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
                 data-target=".navbar-collapse">
                 <span></span>
-            </a>
+            </a> --}}
             <!-- END RESPONSIVE MENU TOGGLER -->
             <!-- BEGIN TOP NAVIGATION MENU -->
-            <div class="top-menu">
+            {{-- <div class="top-menu">
                 <ul class="nav navbar-nav pull-right">
-                    <!-- BEGIN NOTIFICATION DROPDOWN -->
-                    <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                    <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
-                            data-close-others="true">
-                            <i class="icon-bell"></i>
-                            <span class="badge badge-default"> 7 </span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="external">
-                                <h3>
-                                    <span class="bold">12 pending</span> notifications</h3>
-                                <a href="page_user_profile_1.html">view all</a>
-                            </li>
-                            <li>
-                                <ul class="dropdown-menu-list scroller" style="height: 250px;"
-                                    data-handle-color="#637283">
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">just now</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-success">
-                                                    <i class="fa fa-plus"></i>
-                                                </span> New user registered. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">3 mins</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-danger">
-                                                    <i class="fa fa-bolt"></i>
-                                                </span> Server #12 overloaded. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">10 mins</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-warning">
-                                                    <i class="fa fa-bell-o"></i>
-                                                </span> Server #2 not responding. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">14 hrs</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-info">
-                                                    <i class="fa fa-bullhorn"></i>
-                                                </span> Application error. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">2 days</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-danger">
-                                                    <i class="fa fa-bolt"></i>
-                                                </span> Database overloaded 68%. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">3 days</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-danger">
-                                                    <i class="fa fa-bolt"></i>
-                                                </span> A user IP blocked. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">4 days</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-warning">
-                                                    <i class="fa fa-bell-o"></i>
-                                                </span> Storage Server #4 not responding dfdfdfd. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">5 days</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-info">
-                                                    <i class="fa fa-bullhorn"></i>
-                                                </span> System Error. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">9 days</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-danger">
-                                                    <i class="fa fa-bolt"></i>
-                                                </span> Storage server failed. </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- END NOTIFICATION DROPDOWN -->
-                    <!-- BEGIN INBOX DROPDOWN -->
-                    <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                    <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
-                            data-close-others="true">
-                            <i class="icon-envelope-open"></i>
-                            <span class="badge badge-default"> 4 </span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="external">
-                                <h3>You have
-                                    <span class="bold">7 New</span> Messages</h3>
-                                <a href="app_inbox.html">view all</a>
-                            </li>
-                            <li>
-                                <ul class="dropdown-menu-list scroller" style="height: 275px;"
-                                    data-handle-color="#637283">
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo">
-                                                <img src="{{asset('/assets')}}/layouts/layout3/img/avatar2.jpg"
-                                                    class="img-circle" alt=""> </span>
-                                            <span class="subject">
-                                                <span class="from"> Lisa Wong </span>
-                                                <span class="time">Just Now </span>
-                                            </span>
-                                            <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh
-                                                auctor nibh... </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo">
-                                                <img src="{{asset('/assets')}}/layouts/layout3/img/avatar3.jpg"
-                                                    class="img-circle" alt=""> </span>
-                                            <span class="subject">
-                                                <span class="from"> Richard Doe </span>
-                                                <span class="time">16 mins </span>
-                                            </span>
-                                            <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh.
-                                                auctor nibh auctor nibh... </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo">
-                                                <img src="{{asset('/assets')}}/layouts/layout3/img/avatar1.jpg"
-                                                    class="img-circle" alt=""> </span>
-                                            <span class="subject">
-                                                <span class="from"> Bob Nilson </span>
-                                                <span class="time">2 hrs </span>
-                                            </span>
-                                            <span class="message"> Vivamus sed nibh auctor nibh congue nibh. auctor nibh
-                                                auctor nibh... </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo">
-                                                <img src="{{asset('/assets')}}/layouts/layout3/img/avatar2.jpg"
-                                                    class="img-circle" alt=""> </span>
-                                            <span class="subject">
-                                                <span class="from"> Lisa Wong </span>
-                                                <span class="time">40 mins </span>
-                                            </span>
-                                            <span class="message"> Vivamus sed auctor 40% nibh congue nibh... </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo">
-                                                <img src="{{asset('/assets')}}/layouts/layout3/img/avatar3.jpg"
-                                                    class="img-circle" alt=""> </span>
-                                            <span class="subject">
-                                                <span class="from"> Richard Doe </span>
-                                                <span class="time">46 mins </span>
-                                            </span>
-                                            <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh.
-                                                auctor nibh auctor nibh... </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- END INBOX DROPDOWN -->
-                    <!-- BEGIN TODO DROPDOWN -->
-                    <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                    <li class="dropdown dropdown-extended dropdown-tasks" id="header_task_bar">
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
-                            data-close-others="true">
-                            <i class="icon-calendar"></i>
-                            <span class="badge badge-default"> 3 </span>
-                        </a>
-                        <ul class="dropdown-menu extended tasks">
-                            <li class="external">
-                                <h3>You have
-                                    <span class="bold">12 pending</span> tasks</h3>
-                                <a href="app_todo.html">view all</a>
-                            </li>
-                            <li>
-                                <ul class="dropdown-menu-list scroller" style="height: 275px;"
-                                    data-handle-color="#637283">
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="task">
-                                                <span class="desc">New release v1.2 </span>
-                                                <span class="percent">30%</span>
-                                            </span>
-                                            <span class="progress">
-                                                <span style="width: 40%;" class="progress-bar progress-bar-success"
-                                                    aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">40% Complete</span>
-                                                </span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="task">
-                                                <span class="desc">Application deployment</span>
-                                                <span class="percent">65%</span>
-                                            </span>
-                                            <span class="progress">
-                                                <span style="width: 65%;" class="progress-bar progress-bar-danger"
-                                                    aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">65% Complete</span>
-                                                </span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="task">
-                                                <span class="desc">Mobile app release</span>
-                                                <span class="percent">98%</span>
-                                            </span>
-                                            <span class="progress">
-                                                <span style="width: 98%;" class="progress-bar progress-bar-success"
-                                                    aria-valuenow="98" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">98% Complete</span>
-                                                </span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="task">
-                                                <span class="desc">Database migration</span>
-                                                <span class="percent">10%</span>
-                                            </span>
-                                            <span class="progress">
-                                                <span style="width: 10%;" class="progress-bar progress-bar-warning"
-                                                    aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">10% Complete</span>
-                                                </span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="task">
-                                                <span class="desc">Web server upgrade</span>
-                                                <span class="percent">58%</span>
-                                            </span>
-                                            <span class="progress">
-                                                <span style="width: 58%;" class="progress-bar progress-bar-info"
-                                                    aria-valuenow="58" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">58% Complete</span>
-                                                </span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="task">
-                                                <span class="desc">Mobile development</span>
-                                                <span class="percent">85%</span>
-                                            </span>
-                                            <span class="progress">
-                                                <span style="width: 85%;" class="progress-bar progress-bar-success"
-                                                    aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">85% Complete</span>
-                                                </span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="task">
-                                                <span class="desc">New UI release</span>
-                                                <span class="percent">38%</span>
-                                            </span>
-                                            <span class="progress progress-striped">
-                                                <span style="width: 38%;" class="progress-bar progress-bar-important"
-                                                    aria-valuenow="18" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">38% Complete</span>
-                                                </span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
                     <!-- END TODO DROPDOWN -->
                     <!-- BEGIN USER LOGIN DROPDOWN -->
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                     <li class="dropdown dropdown-user">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                             data-close-others="true">
-                            <img alt="" class="img-circle"
-                                src="{{asset('/assets')}}/layouts/layout/img/avatar3_small.jpg" />
                             <span class="username username-hide-on-mobile"> Nick </span>
                             <i class="fa fa-angle-down"></i>
                         </a>
@@ -403,45 +96,63 @@
                                     <i class="icon-user"></i> My Profile </a>
                             </li>
                             <li>
-                                <a href="app_calendar.html">
-                                    <i class="icon-calendar"></i> My Calendar </a>
-                            </li>
-                            <li>
-                                <a href="app_inbox.html">
-                                    <i class="icon-envelope-open"></i> My Inbox
-                                    <span class="badge badge-danger"> 3 </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="app_todo.html">
-                                    <i class="icon-rocket"></i> My Tasks
-                                    <span class="badge badge-success"> 7 </span>
-                                </a>
-                            </li>
-                            <li class="divider"> </li>
-                            <li>
-                                <a href="page_user_lock_1.html">
-                                    <i class="icon-lock"></i> Lock Screen </a>
-                            </li>
-                            <li>
                                 <a href="page_user_login_1.html">
                                     <i class="icon-key"></i> Log Out </a>
                             </li>
                         </ul>
                     </li>
-                    <!-- END USER LOGIN DROPDOWN -->
-                    <!-- BEGIN QUICK SIDEBAR TOGGLER -->
-                    <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                    <li class="dropdown dropdown-quick-sidebar-toggler">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <i class="icon-logout"></i>
-                        </a>
-                    </li>
                     <!-- END QUICK SIDEBAR TOGGLER -->
                 </ul>
+            </div> --}}
+            <style>
+                .top-menu{
+                    margin: 5px !important;
+                    
+
+                }
+                .top-menu a{
+                    color: white;
+                }
+                .linksa a{
+                    margin: 10px;
+                }
+            </style>
+            <div class="top-menu">
+                <!-- Authentication Links -->
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                    @endif
+
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-item dropdown linksa">
+                        <a href="#">
+                            {{ Auth::user()->name }}
+                        </a>
+
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                    </li>
+                @endguest
+
             </div>
             <!-- END TOP NAVIGATION MENU -->
         </div>
+    
         <!-- END HEADER INNER -->
     </div>
     <!-- END HEADER -->
@@ -506,7 +217,8 @@
                                             <span class="badge badge-success">8</span>
                                         </div>
                                         <img class="media-object"
-                                            src="{{asset('/assets')}}/layouts/layout/img/avatar3.jpg" alt="...">
+                                            src="{{ asset('/assets') }}/layouts/layout/img/avatar3.jpg"
+                                            alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Bob Nilson</h4>
                                             <div class="media-heading-sub"> Project Manager </div>
@@ -514,7 +226,8 @@
                                     </li>
                                     <li class="media">
                                         <img class="media-object"
-                                            src="{{asset('/assets')}}/layouts/layout/img/avatar1.jpg" alt="...">
+                                            src="{{ asset('/assets') }}/layouts/layout/img/avatar1.jpg"
+                                            alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Nick Larson</h4>
                                             <div class="media-heading-sub"> Art Director </div>
@@ -525,7 +238,8 @@
                                             <span class="badge badge-danger">3</span>
                                         </div>
                                         <img class="media-object"
-                                            src="{{asset('/assets')}}/layouts/layout/img/avatar4.jpg" alt="...">
+                                            src="{{ asset('/assets') }}/layouts/layout/img/avatar4.jpg"
+                                            alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Deon Hubert</h4>
                                             <div class="media-heading-sub"> CTO </div>
@@ -533,7 +247,8 @@
                                     </li>
                                     <li class="media">
                                         <img class="media-object"
-                                            src="{{asset('/assets')}}/layouts/layout/img/avatar2.jpg" alt="...">
+                                            src="{{ asset('/assets') }}/layouts/layout/img/avatar2.jpg"
+                                            alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Ella Wong</h4>
                                             <div class="media-heading-sub"> CEO </div>
@@ -547,7 +262,8 @@
                                             <span class="badge badge-warning">2</span>
                                         </div>
                                         <img class="media-object"
-                                            src="{{asset('/assets')}}/layouts/layout/img/avatar6.jpg" alt="...">
+                                            src="{{ asset('/assets') }}/layouts/layout/img/avatar6.jpg"
+                                            alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Lara Kunis</h4>
                                             <div class="media-heading-sub"> CEO, Loop Inc </div>
@@ -559,16 +275,19 @@
                                             <span class="label label-sm label-success">new</span>
                                         </div>
                                         <img class="media-object"
-                                            src="{{asset('/assets')}}/layouts/layout/img/avatar7.jpg" alt="...">
+                                            src="{{ asset('/assets') }}/layouts/layout/img/avatar7.jpg"
+                                            alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Ernie Kyllonen</h4>
                                             <div class="media-heading-sub"> Project Manager,
-                                                <br> SmartBizz PTL </div>
+                                                <br> SmartBizz PTL
+                                            </div>
                                         </div>
                                     </li>
                                     <li class="media">
                                         <img class="media-object"
-                                            src="{{asset('/assets')}}/layouts/layout/img/avatar8.jpg" alt="...">
+                                            src="{{ asset('/assets') }}/layouts/layout/img/avatar8.jpg"
+                                            alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Lisa Stone</h4>
                                             <div class="media-heading-sub"> CTO, Keort Inc </div>
@@ -580,7 +299,8 @@
                                             <span class="badge badge-success">7</span>
                                         </div>
                                         <img class="media-object"
-                                            src="{{asset('/assets')}}/layouts/layout/img/avatar9.jpg" alt="...">
+                                            src="{{ asset('/assets') }}/layouts/layout/img/avatar9.jpg"
+                                            alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Deon Portalatin</h4>
                                             <div class="media-heading-sub"> CFO, H&D LTD </div>
@@ -588,7 +308,8 @@
                                     </li>
                                     <li class="media">
                                         <img class="media-object"
-                                            src="{{asset('/assets')}}/layouts/layout/img/avatar10.jpg" alt="...">
+                                            src="{{ asset('/assets') }}/layouts/layout/img/avatar10.jpg"
+                                            alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Irina Savikova</h4>
                                             <div class="media-heading-sub"> CEO, Tizda Motors Inc </div>
@@ -599,7 +320,8 @@
                                             <span class="badge badge-danger">4</span>
                                         </div>
                                         <img class="media-object"
-                                            src="{{asset('/assets')}}/layouts/layout/img/avatar11.jpg" alt="...">
+                                            src="{{ asset('/assets') }}/layouts/layout/img/avatar11.jpg"
+                                            alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Maria Gomez</h4>
                                             <div class="media-heading-sub"> Manager, Infomatic Inc </div>
@@ -617,7 +339,7 @@
                                     <div class="page-quick-sidebar-chat-user-messages">
                                         <div class="post out">
                                             <img class="avatar" alt=""
-                                                src="{{asset('/assets')}}/layouts/layout/img/avatar3.jpg" />
+                                                src="{{ asset('/assets') }}/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -627,7 +349,7 @@
                                         </div>
                                         <div class="post in">
                                             <img class="avatar" alt=""
-                                                src="{{asset('/assets')}}/layouts/layout/img/avatar2.jpg" />
+                                                src="{{ asset('/assets') }}/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
@@ -638,7 +360,7 @@
                                         </div>
                                         <div class="post out">
                                             <img class="avatar" alt=""
-                                                src="{{asset('/assets')}}/layouts/layout/img/avatar3.jpg" />
+                                                src="{{ asset('/assets') }}/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -648,17 +370,18 @@
                                         </div>
                                         <div class="post in">
                                             <img class="avatar" alt=""
-                                                src="{{asset('/assets')}}/layouts/layout/img/avatar2.jpg" />
+                                                src="{{ asset('/assets') }}/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
                                                 <span class="datetime">20:16</span>
-                                                <span class="body"> You are most welcome. Sorry for the delay. </span>
+                                                <span class="body"> You are most welcome. Sorry for the delay.
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="post out">
                                             <img class="avatar" alt=""
-                                                src="{{asset('/assets')}}/layouts/layout/img/avatar3.jpg" />
+                                                src="{{ asset('/assets') }}/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -668,7 +391,7 @@
                                         </div>
                                         <div class="post in">
                                             <img class="avatar" alt=""
-                                                src="{{asset('/assets')}}/layouts/layout/img/avatar2.jpg" />
+                                                src="{{ asset('/assets') }}/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
@@ -678,7 +401,7 @@
                                         </div>
                                         <div class="post out">
                                             <img class="avatar" alt=""
-                                                src="{{asset('/assets')}}/layouts/layout/img/avatar3.jpg" />
+                                                src="{{ asset('/assets') }}/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -688,22 +411,24 @@
                                         </div>
                                         <div class="post in">
                                             <img class="avatar" alt=""
-                                                src="{{asset('/assets')}}/layouts/layout/img/avatar2.jpg" />
+                                                src="{{ asset('/assets') }}/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
                                                 <span class="datetime">20:40</span>
-                                                <span class="body"> Please let me know if you have any comment. </span>
+                                                <span class="body"> Please let me know if you have any comment.
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="post out">
                                             <img class="avatar" alt=""
-                                                src="{{asset('/assets')}}/layouts/layout/img/avatar3.jpg" />
+                                                src="{{ asset('/assets') }}/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
                                                 <span class="datetime">20:17</span>
-                                                <span class="body"> Sure. I will check and buzz you if anything needs to
+                                                <span class="body"> Sure. I will check and buzz you if anything needs
+                                                    to
                                                     be corrected. </span>
                                             </div>
                                         </div>
@@ -852,7 +577,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="cont-col2">
-                                                        <div class="desc"> IPO Report for year 2013 has been released.
+                                                        <div class="desc"> IPO Report for year 2013 has been
+                                                            released.
                                                         </div>
                                                     </div>
                                                 </div>
@@ -991,7 +717,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="cont-col2">
-                                                        <div class="desc"> IPO Report for year 2013 has been released.
+                                                        <div class="desc"> IPO Report for year 2013 has been
+                                                            released.
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1011,23 +738,28 @@
                                     <li> Enable Notifications
                                         <input type="checkbox" class="make-switch" checked data-size="small"
                                             data-on-color="success" data-on-text="ON" data-off-color="default"
-                                            data-off-text="OFF"> </li>
+                                            data-off-text="OFF">
+                                    </li>
                                     <li> Allow Tracking
                                         <input type="checkbox" class="make-switch" data-size="small"
                                             data-on-color="info" data-on-text="ON" data-off-color="default"
-                                            data-off-text="OFF"> </li>
+                                            data-off-text="OFF">
+                                    </li>
                                     <li> Log Errors
                                         <input type="checkbox" class="make-switch" checked data-size="small"
                                             data-on-color="danger" data-on-text="ON" data-off-color="default"
-                                            data-off-text="OFF"> </li>
+                                            data-off-text="OFF">
+                                    </li>
                                     <li> Auto Sumbit Issues
                                         <input type="checkbox" class="make-switch" data-size="small"
                                             data-on-color="warning" data-on-text="ON" data-off-color="default"
-                                            data-off-text="OFF"> </li>
+                                            data-off-text="OFF">
+                                    </li>
                                     <li> Enable SMS Alerts
                                         <input type="checkbox" class="make-switch" checked data-size="small"
                                             data-on-color="success" data-on-text="ON" data-off-color="default"
-                                            data-off-text="OFF"> </li>
+                                            data-off-text="OFF">
+                                    </li>
                                 </ul>
                                 <h3 class="list-heading">System Settings</h3>
                                 <ul class="list-items borderless">
@@ -1039,18 +771,23 @@
                                         </select>
                                     </li>
                                     <li> Failed Email Attempts
-                                        <input class="form-control input-inline input-sm input-small" value="5" /> </li>
+                                        <input class="form-control input-inline input-sm input-small"
+                                            value="5" />
+                                    </li>
                                     <li> Secondary SMTP Port
-                                        <input class="form-control input-inline input-sm input-small" value="3560" />
+                                        <input class="form-control input-inline input-sm input-small"
+                                            value="3560" />
                                     </li>
                                     <li> Notify On System Error
                                         <input type="checkbox" class="make-switch" checked data-size="small"
                                             data-on-color="danger" data-on-text="ON" data-off-color="default"
-                                            data-off-text="OFF"> </li>
+                                            data-off-text="OFF">
+                                    </li>
                                     <li> Notify On SMTP Error
                                         <input type="checkbox" class="make-switch" checked data-size="small"
                                             data-on-color="warning" data-on-text="ON" data-off-color="default"
-                                            data-off-text="OFF"> </li>
+                                            data-off-text="OFF">
+                                    </li>
                                 </ul>
                                 <div class="inner-content">
                                     <button class="btn btn-success">
@@ -1068,8 +805,7 @@
     <!-- BEGIN FOOTER -->
     <div class="page-footer">
         <div class="page-footer-inner"> 2023 &copy; All rights reserved to
-            <a href="#"
-                title="Swift and Smart" target="_blank">Swift and Smart</a>
+            <a href="#" title="Swift and Smart" target="_blank">Swift and Smart</a>
         </div>
         <div class="scroll-to-top">
             <i class="icon-arrow-up"></i>
@@ -1077,90 +813,84 @@
     </div>
     <!-- END FOOTER -->
     <!--[if lt IE 9]>
-<script src="{{asset('/assets')}}/global/plugins/respond.min.js"></script>
-<script src="{{asset('/assets')}}/global/plugins/excanvas.min.js"></script>
+<script src="{{ asset('/assets') }}/global/plugins/respond.min.js"></script>
+<script src="{{ asset('/assets') }}/global/plugins/excanvas.min.js"></script>
 <![endif]-->
     <!-- BEGIN CORE PLUGINS -->
 
-    <script src="{{asset('/assets')}}/global/plugins/jquery.min.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/js.cookie.min.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"
+    <script src="{{ asset('/assets') }}/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"
         type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript">
+    <script src="{{ asset('/assets') }}/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript">
     </script>
-    <script src="{{asset('/assets')}}/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
-        type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript">
+    </script>
     <!-- END CORE PLUGINS -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
 
-    <script src="{{asset('/assets')}}/global/scripts/datatable.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/scripts/datatable.js" type="text/javascript"></script>
 
-    <script src="{{asset('/assets')}}/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
-
-
-    <script src="{{asset('/assets')}}/global/plugins/moment.min.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js"
-        type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/morris/morris.min.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/counterup/jquery.waypoints.min.js" type="text/javascript">
-    </script>
-    <script src="{{asset('/assets')}}/global/plugins/counterup/jquery.counterup.min.js" type="text/javascript">
-    </script>
-    <script src="{{asset('/assets')}}/global/plugins/amcharts/amcharts/amcharts.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/amcharts/amcharts/serial.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/amcharts/amcharts/pie.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/amcharts/amcharts/radar.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/amcharts/amcharts/themes/light.js" type="text/javascript">
-    </script>
-    <script src="{{asset('/assets')}}/global/plugins/amcharts/amcharts/themes/patterns.js" type="text/javascript">
-    </script>
-    <script src="{{asset('/assets')}}/global/plugins/amcharts/amcharts/themes/chalk.js" type="text/javascript">
-    </script>
-    <script src="{{asset('/assets')}}/global/plugins/amcharts/ammap/ammap.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/amcharts/ammap/maps/js/worldLow.js" type="text/javascript">
-    </script>
-    <script src="{{asset('/assets')}}/global/plugins/amcharts/amstockcharts/amstock.js" type="text/javascript">
-    </script>
-    <script src="{{asset('/assets')}}/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript">
-    </script>
-    <script src="{{asset('/assets')}}/global/plugins/horizontal-timeline/horozontal-timeline.min.js"
-        type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js"
-        type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript">
-    </script>
-    <script src="{{asset('/assets')}}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript">
-    </script>
-    <script src="{{asset('/assets')}}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript">
-    </script>
-    <script src="{{asset('/assets')}}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript">
-    </script>
-    <script src="{{asset('/assets')}}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript">
-    </script>
-    <script src="{{asset('/assets')}}/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js"
+    <script src="{{ asset('/assets') }}/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"
         type="text/javascript"></script>
 
-    <script src="{{asset('/assets')}}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript">
+
+    <script src="{{ asset('/assets') }}/global/plugins/moment.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js"
+        type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/morris/morris.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/counterup/jquery.waypoints.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/amcharts/amcharts/amcharts.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/amcharts/amcharts/serial.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/amcharts/amcharts/pie.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/amcharts/amcharts/radar.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/amcharts/amcharts/themes/light.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/amcharts/amcharts/themes/patterns.js" type="text/javascript">
     </script>
-    <script src="{{asset('/assets')}}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript">
+    <script src="{{ asset('/assets') }}/global/plugins/amcharts/amcharts/themes/chalk.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/amcharts/ammap/ammap.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/amcharts/ammap/maps/js/worldLow.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/amcharts/amstockcharts/amstock.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/horizontal-timeline/horozontal-timeline.min.js"
+        type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js"
+        type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript">
     </script>
-    <script src="{{asset('/assets')}}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript">
+    <script src="{{ asset('/assets') }}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript">
     </script>
-    <script src="{{asset('/assets')}}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript">
+    <script src="{{ asset('/assets') }}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript">
     </script>
-    <script src="{{asset('/assets')}}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript">
+    <script src="{{ asset('/assets') }}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript">
     </script>
-    <script src="{{asset('/assets')}}/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js"
+    <script src="{{ asset('/assets') }}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript">
+    </script>
+    <script src="{{ asset('/assets') }}/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js"
+        type="text/javascript"></script>
+
+    <script src="{{ asset('/assets') }}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript">
+    </script>
+    <script src="{{ asset('/assets') }}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript">
+    </script>
+    <script src="{{ asset('/assets') }}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript">
+    </script>
+    <script src="{{ asset('/assets') }}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript">
+    </script>
+    <script src="{{ asset('/assets') }}/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript">
+    </script>
+    <script src="{{ asset('/assets') }}/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js"
         type="text/javascript"></script>
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL SCRIPTS -->
-    <script src="{{asset('/assets')}}/global/scripts/app.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/scripts/app.min.js" type="text/javascript"></script>
     <!-- END THEME GLOBAL SCRIPTS -->
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
 
@@ -1168,20 +898,18 @@
 
     <!-- END PAGE LEVEL SCRIPTS -->
     <!-- BEGIN THEME LAYOUT SCRIPTS -->
-    <script src="{{asset('/assets')}}/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
     <!-- END THEME LAYOUT SCRIPTS -->
 
-    <script src="{{asset('/assets')}}/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
-    <script src="{{asset('/assets')}}/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript">
-    </script>
-    <script src="{{asset('/assets')}}/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript">
-    </script>
-    <script src="{{asset('/assets')}}/global/plugins/dropify/dist/js/dropify.min.js"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+    <script src="{{ asset('/assets') }}/global/plugins/dropify/dist/js/dropify.min.js"></script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Basic
             $('.dropify').dropify();
 
@@ -1198,21 +926,21 @@
             // Used events
             var drEvent = $('#input-file-events').dropify();
 
-            drEvent.on('dropify.beforeClear', function (event, element) {
+            drEvent.on('dropify.beforeClear', function(event, element) {
                 return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
             });
 
-            drEvent.on('dropify.afterClear', function (event, element) {
+            drEvent.on('dropify.afterClear', function(event, element) {
                 alert('File deleted');
             });
 
-            drEvent.on('dropify.errors', function (event, element) {
+            drEvent.on('dropify.errors', function(event, element) {
                 console.log('Has Errors');
             });
 
             var drDestroy = $('#input-file-to-destroy').dropify();
             drDestroy = drDestroy.data('dropify')
-            $('#toggleDropify').on('click', function (e) {
+            $('#toggleDropify').on('click', function(e) {
                 e.preventDefault();
                 if (drDestroy.isDropified()) {
                     drDestroy.destroy();
@@ -1221,7 +949,6 @@
                 }
             })
         });
-
     </script>
     @Stack('custom-scripts')
 </body>

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('content')
+@section('header')
 <section class="u-clearfix u-section-1">
     <div class="leftcolumn">
         <div class="card">

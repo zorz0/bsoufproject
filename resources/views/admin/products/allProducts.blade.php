@@ -1,6 +1,6 @@
 @extends('layouts.admin_master')
 @extends('layouts.sidemenu')
-@section('content')
+@section('header')
 <!-- BEGIN CONTENT -->
 <!-- BEGIN CONTENT BODY -->
 <div class="page-content">

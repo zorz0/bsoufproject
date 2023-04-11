@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('content')
+@section('header')
 <section class="u-clearfix u-section-1">
     <div>
         <div class="u-align-center u-carousel u-gallery u-gallery-slider u-layout-carousel u-lightbox u-no-transition u-show-text-on-hover u-gallery-2"

@@ -1,6 +1,6 @@
 @extends('layouts.admin_master')
 @extends('layouts.sidemenu')
-@section('header')
+@section('content')
 <!-- BEGIN CONTENT -->
 <!-- BEGIN CONTENT BODY -->
 <div class="page-content">
@@ -28,11 +28,11 @@
         <form role="form" action="#">
             <div class="form-group col-md-6">
                 <label class="control-label">اسم الموقع</label>
-                <input type="text" placeholder="الاسم بالكامل" class="form-control" required>
+                <input type="text" placeholder="الاسم بالكامل" class="form-control" name="title" required>
             </div>
             <div class="form-group col-md-6">
                 <label class="control-label">رقم الهاتف</label>
-                <input type="text" placeholder="0123456789" class="form-control">
+                <input type="text" placeholder="0123456789" name="phone" class="form-control">
             </div>
             <div class="form-group col-md-6">
                 <label class="control-label">العملة الرئيسية</label>

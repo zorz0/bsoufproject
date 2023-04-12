@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('admin.index');
 // });
 
-Route::get('/',[IndexController::class , 'index'])->name('admin');
+Route::get('/index',[IndexController::class , 'index'])->name('admin');
+Route::get('/settings', function () {
+    return view('admin.settings');
+});
 
 

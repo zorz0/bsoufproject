@@ -11,6 +11,7 @@ class Setting extends Model
     protected $fillable = [
         "title",
         "description",
+        "currency",
         "address",
         "phone",
         "email",

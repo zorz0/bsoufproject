@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->increments("id");
             $table->string("title");
+            $table->string("currency");
             $table->string("description");
             $table->string("address");
             $table->string("phone");
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->string("facebook");
             $table->string("twitter");
             $table->string("instagram");
+            $table->string("youtube");
             $table->string("timestamps");
         });
     }

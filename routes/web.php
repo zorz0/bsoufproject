@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('front.home');
-});
+})->name('index');
 Route::get('/store', function () {
     return view('front.store');
 });
@@ -30,6 +30,7 @@ Route::get('/contact', function () {
 Route::get('/about', function () {
     return view('front.clean');
 });
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

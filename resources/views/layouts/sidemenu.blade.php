@@ -38,19 +38,19 @@
             <!-- END RESPONSIVE QUICK SEARCH FORM -->
         </li>
         <li class="nav-item  ">
-            <a href="{{url('/')}}" class="nav-link ">
+            <a href="{{url('/dashboard/index')}}" class="nav-link ">
                 <i class="icon-home"></i>
                 <span class="title">الرئيسية</span>
             </a>
         </li>
         <li class="nav-item  ">
-            <a href="{{url('/settings')}}" class="nav-link ">
+            <a href="{{url('/dashboard/settings')}}" class="nav-link ">
                 <i class="icon-settings"></i>
                 <span class="title">الاعدادات</span>
             </a>
         </li>
         <li class="nav-item  ">
-            <a href="{{url('/users')}}" class="nav-link ">
+            <a href="{{url('/dashboard/users')}}" class="nav-link ">
                 <i class="icon-users"></i>
                 <span class="title">الأعضاء</span>
             </a>
@@ -97,13 +97,13 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="{{url('products')}}" class="nav-link ">
+                    <a href="{{url('/dashboard/products')}}" class="nav-link ">
                         <i class="icon-home"></i>
                         <span class="title">المنتجات</span>
                     </a>
                 </li>
                 <li class="nav-item  ">
-                    <a href="{{url('addProduct')}}" class="nav-link ">
+                    <a href="{{url('/dashboard/addProduct')}}" class="nav-link ">
                         <i class="icon-basket"></i>
                         <span class="title">اضافة منتج</span>
                     </a>
@@ -118,13 +118,13 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="{{url('orders')}}" class="nav-link ">
+                    <a href="{{url('/dashboard/orders')}}" class="nav-link ">
                         <i class="icon-home"></i>
                         <span class="title">الطلبات</span>
                     </a>
                 </li>
                 <li class="nav-item  ">
-                    <a href="{{url('addOrder')}}" class="nav-link ">
+                    <a href="{{url('/dashboard/addOrder')}}" class="nav-link ">
                         <i class="icon-basket"></i>
                         <span class="title">اضافة طلب</span>
                     </a>
@@ -142,7 +142,7 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="{{url('categories')}}" class="nav-link ">
+                    <a href="{{url('/dashboard/categories')}}" class="nav-link ">
                         <i class="icon-docs"></i>
                         <span class="title">جميع الفئات</span>
                     </a>
@@ -157,13 +157,13 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="{{url('posts')}}" class="nav-link ">
+                    <a href="{{url('/dashboard/posts')}}" class="nav-link ">
                         <i class="icon-docs"></i>
                         <span class="title">المقالات</span>
                     </a>
                 </li>
                 <li class="nav-item  ">
-                    <a href="{{url('addPost')}}" class="nav-link ">
+                    <a href="{{url('/dashboard/addPost')}}" class="nav-link ">
                         <i class="icon-layers"></i>
                         <span class="title">اضافة مقال</span>
                     </a>

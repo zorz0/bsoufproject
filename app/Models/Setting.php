@@ -20,7 +20,8 @@ class Setting extends Model
         "favicon",
         "facebook",
         "twitter",
-        "instagram"
+        "instagram",
+        "youtube"
     ];
     protected $table = "settings";
 }

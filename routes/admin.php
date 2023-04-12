@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\IndexController;
+use App\Http\Controllers\Dashboard\SettingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,9 +20,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('admin.index');
 // });
 
-Route::get('/index',[IndexController::class , 'index'])->name('admin');
-Route::get('/settings', function () {
-    return view('admin.settings');
+Route::get('/index', [IndexController::class, 'index'])->name('admin');
+    Route::get('/settings', function () {
+        return view('admin.settings');
 });
-
-
+Route::get('/users', function () {
+    return view('admin.Users.allUsers');
+});
+// Route::put('/settings/{id}/update', [SettingController::class, 'update'])->name('admin.settings.update');

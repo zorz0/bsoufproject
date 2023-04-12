@@ -21,10 +21,10 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/index', [IndexController::class, 'index'])->name('admin');
-    Route::get('/settings', function () {
-        return view('admin.settings');
-});
+Route::get('/settings', [SettingController::class, 'index']);
 Route::get('/users', function () {
-    return view('admin.Users.allUsers');
+    return view('admin.Users.allUsers'); 
 });
-// Route::put('/settings/{id}/update', [SettingController::class, 'update'])->name('admin.settings.update');
+Route::put('/settings/{id}/update', 
+[SettingController::class, 'update'])
+->name('admin.settings.update');

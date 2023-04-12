@@ -25,11 +25,13 @@
         <!-- END PAGE TITLE-->
         <div class="portlet-body form">
             <!-- BEGIN FORM-->
-            <form role="form" action="#" method="POST"
-                enctype="multipart/">
+            <form role="form" action="{{ route('admin.settings.update', $setting->id) }}" method="post"
+                enctype="multipart/form-data">
+                @csrf
+                @method('put')
                 <div class="form-group col-md-4">
                     <label class="control-label">اسم الموقع</label>
-                    <input type="text" placeholder="الاسم بالكامل" class="form-control" name="title" required>
+                    <input type="text" placeholder="الاسم بالكامل" class="form-control" name="title" >
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">رقم الهاتف</label>
@@ -53,7 +55,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">البريد الالكتروني للموقع</label>
-                    <input type="email" placeholder="User@gmail.com" name="email" class="form-control" required>
+                    <input type="email" placeholder="User@gmail.com" name="email" class="form-control" >
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">العنوان</label>

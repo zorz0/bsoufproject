@@ -21,12 +21,16 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
-        $setting = Setting::firstor(function () {
-            return Setting::create([
-                'title' => 'site_name',
-                'description' => 'laravel'
-            ]);
-        });
-        view()->share('setting', $setting);
+        if (!app()->runninginconsole()) {
+
+
+            $setting = Setting::firstor(function () {
+                return Setting::create([
+                    'title' => 'site_name',
+                    'description' => 'laravel'
+                ]);
+            });
+            view()->share('setting', $setting);
+        }
     }
 }

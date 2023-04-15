@@ -47,21 +47,23 @@ $Category=Category::all();
 
         ]);
 
-if(!isNull($request['productimages'])){
+    //    if(!(isNull($request['productimages']))){
 
-          foreach($request['productimages'] as $image){
-            $image->storeAs("public/img",$image->getClientOriginalName());
-            $imgname= $image->getClientOriginalName();
+    //       foreach($request['productimages'] as $image){
+    //         $image->storeAs("public/img",$image->getClientOriginalName());
+    //         $imgname= $image->getClientOriginalName();
 
-            ProductImage::create([
+    //         ProductImage::create([
 
-                "product_id"=>$product['id'],
-                "image"=>$imgname
+    //             "product_id"=>$product['id'],
+    //             "image"=>$imgname
 
-            ]);
-        }
+    //         ]);
+    //     }
 
-    }
+    // }
+
+    
 
 
 

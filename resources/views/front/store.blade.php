@@ -116,26 +116,49 @@
                 <a href="#"><img class="category" alt="khayba" src="{{asset('/assets/bks')}}/images/khayba.jpg"></a>
             </div>
         </div>
+
   @foreach($data as $value)
 
-        <div class="col-sm-6 col-md-3">
-            <a style="text-decoration: none"  href="{{ route('showProduct',$value['id']) }}">
-            <div class="product">
+
+  <form id="FormCard" action="{{ route('showProduct',['id'=>$value['id']]) }}" method="post">
+@csrf
+        <div id="card" class="col-md-3">
+            <div class="product"  style="height: 350px">
                 <h3>{{ $value['name'] }} </h3>
+
                 <p>{{ $value['description'] }}</p>
                 <hr class="myhr">
-                <a href="{{ route('showProduct',$value['id']) }}"><img class="myimg" alt="product" src="/storage/img/{{ $value->image }}"></a>
+                <img class="myimg" alt="product" src="/storage/img/{{ $value->image }}">
                 <hr class="myhr">
+                <select name="productSizeId" id="">
+                @foreach($productSizes as $size)
+                @if($value->id==$size->product_id)
+
+
+
+      <option value="{{$size["id"]}}"> {{$size["size"]}}</option>
+
+            @endif
+            @endforeach
+           </select>
                 <h3>
-                   {{ $value['price'] }}
+                   {{--  {{ $value['price'] }}  --}}
+
 
                 </h3>
-            </div>
-        </a>
+
+                <button type="submit"> اعرض المنتج</button>
+
+
+</div>
 
         </div>
 
+
+    </form>
       @endforeach
 
 </section>
+
+
 @endsection

@@ -22,4 +22,14 @@ public function create(){
     'products'=>$products,
 'ProductSizes'=>$ProductSizes]);
 }
+
+
+public function createorder (Request $request){
+
+  $data=auth()->user()->cards;
+  $totalprice=$request->totalprice;
+
+    return view('front.orderStore',compact('data','totalprice'));
+}
+
 }

@@ -35,75 +35,18 @@
                         <div class="portlet-title">
                             <div class="caption">
                                 <i class="icon-settings font-dark"></i>
-                                @if($_SERVER['REQUEST_URI'] == '/dashboard/categories' )
-                                <span class="caption-subject font-dark sbold uppercase">اضافة فئة جديدة</span>
-                                @else
-                                <span class="caption-subject font-dark sbold uppercase">تعديل فئة </span>
-@endif
+                               <a href="{{route('categories.create')}}"> <span class="caption-subject font-dark sbold uppercase">اضافة فئة جديدة</span>
+                               </a>
+                               
+         
                             </div>
                         </div>
                         <div class="portlet-body form">
-                            @if($_SERVER['REQUEST_URI'] == '/dashboard/categories' )
-                            <form class="form-horizontal" action="{{route('categories.store')}}" method="POST" enctype="multipart/form-data" role="form">
-                               @csrf
-
-                                <div class="form-body">
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">اسم الفئة</label>
-                                        <div class="col-md-6">
-                                            <input type="text" name="name" class="form-control" placeholder="اسم الفئة" required>
-                                            <span class="help-block"> ادخل هنا اسم الفئة. </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">صورة الفئة</label>
-                                        <div class="col-md-6">
-                                            <input type="file" name="image"  placeholder="صورة للفئة" required>
-                                            <span class="help-block"> ارفع هنا صورة للفئة. </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-actions">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <button type="submit" class="btn green">حفظ</button>
-                                            {{-- <button type="button" class="btn default">Cancel</button> --}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            @endif
+                          
+                      
+                          
                            {{-- {{dd($_SERVER['REQUEST_URI'])}} --}}
-@isset($category)
-                            <form class="form-horizontal" action="{{route('categories.update',['id'=>$category->id])}}" method="POST" enctype="multipart/form-data" role="form">
-                               @csrf
-                                <div class="form-body">
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">اسم الفئة</label>
-                                        <div class="col-md-6">
-                                            <input type="text" name="name" class="form-control" value="{{$category->name}}" required>
-                                            <span class="help-block">  ادخل هنا اسم الفئة الجديد .</span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">صورة الفئة</label>
-                                        <div class="col-md-6">
-                                            <input type="file" name="image"  placeholder="صورة للفئة" >
-                                            <img src="./storage/imgs{{$category->image}}" alt="">
-                                            <span class="help-block"> ارفع هنا صورة جديدة للفئة . </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-actions">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <button type="submit" class="btn green">حفظ</button>
-                                            {{-- <button type="button" class="btn default">Cancel</button> --}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-@endisset
+
                         </div>
                     </div>
                 </div>
@@ -207,7 +150,7 @@
                                 </td>
                             </tr>
 @endforeach
-
+{{$categories->links()}}
                             {{-- they will come from database --}}
                             {{-- <tr class="odd gradeX">
                                 <td>
@@ -1014,5 +957,5 @@
 <!-- END CONTENT -->
 @endsection
 @push('custom-scripts')
-<script src="{{asset('/assets')}}/pages/scripts/table-datatables-managed.min.js" type="text/javascript"></script>
+{{-- <script src="{{asset('/assets')}}/pages/scripts/table-datatables-managed.min.js" type="text/javascript"></script> --}}
 @endpush

@@ -14,18 +14,20 @@ return new class extends Migration
         Schema::create('card', function (Blueprint $table) {
             $table->increments("id");
             $table->integer("user_id")->unsigned();
+            $table->integer("productSize_id")->unsigned();
             $table->integer("product_id")->unsigned();
 
             $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreign("productSize_id")->references("id")->on("product_size")->onDelete("cascade")->onUpdate("cascade");
+
             $table->foreign("product_id")->references("id")->on("products")->onDelete("cascade")->onUpdate("cascade");
 
 
-            $table->string("size");
-            $table->integer("quantity");
+            $table->integer("quantity")->default(1);
 
-            $table->decimal("price_two",8,2)->nullable();
-            $table->decimal("discount",8,2)->nullable();
-            $table->integer("status")->default(1);
+            // $table->decimal("price_two",8,2)->nullable();
+            // $table->decimal("discount",8,2)->nullable();
+            // $table->integer("status")->default(1);
 
             $table->decimal("price",8,2)->nullable();
             $table->string("totalprice")->nullable();

@@ -4,6 +4,7 @@ use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\Cardcontroller;
+use App\Http\Controllers\Dashboard\OrderController;
 use App\Http\Controllers\HomeController;
 
 
@@ -38,15 +39,28 @@ Route::get('/about', function () {
 ///web
 Route::get ('/store',[WebController::class,'products'])->name('store');
 
-Route::get ('/showProduct/{id}',[WebController::class,'showProduct'])->name('showProduct');
+Route::post ('/showProduct/{id}',[WebController::class,'showProduct'])->name('showProduct');
+Route::post ('/getPriceSize/{id}',[WebController::class,'getPriceSize'])->name('getPriceSize');
+
 
 ///end web
 
 //card
-// Route::get ('/card',[Cardcontroller::class,'index'])->name('card');
-Route::get ('/card/store',[Cardcontroller::class,'store'])->name('card.store');
+Route::get ('/card',[Cardcontroller::class,'index'])->name('card');
+Route::get ('/totalCards',[Cardcontroller::class,'totalCards'])->name('totalCards');
+
+Route::post ('/card/store',[Cardcontroller::class,'store'])->name('card.store');
+Route::post ('/card/update/{id}',[Cardcontroller::class,'update'])->name('card.update');
+
+Route::get ('/card/destroy/{id}',[Cardcontroller::class,'destroy'])->name('card.destroy');
+
 ///end card
 
+///save order
+
+Route::post ('/order/createorder',[OrderController::class,'createorder'])->name('createorder');
+
+////end save order
 Auth::routes();
 
 //  Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -10,8 +10,9 @@ class Card extends Model
     use HasFactory;
 
     protected $fillable = [
-        "product_id",
+        "productSize_id",
         "user_id",
+        'product_id',
         "size",
         "quantity",
         "price_two",
@@ -23,6 +24,10 @@ class Card extends Model
     protected $table = "card";
 
 
+    public function productsize()
+    {
+        return $this->belongsTo(ProductSize::class,"productSize_id");
+    }
     public function product()
     {
         return $this->belongsTo(Product::class,"product_id");

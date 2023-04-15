@@ -12,6 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -55,6 +56,7 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
+
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -67,7 +69,19 @@
                                     </form>
                                 </div>
                             </li>
+
+
+
                         @endguest
+                        @auth
+                        <li>
+                            <a class="nav-icon position-relative text-decoration-none" href="{{ route('totalCards') }}">
+                                <i  class="fa fa-fw fa-cart-arrow-down text-dark mr-1">
+                                 <span  class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">{{count(Auth::user()->cards)}}</span> </i>
+                           </a>
+                        </li>
+                        @endauth
+
                     </ul>
                 </div>
             </div>

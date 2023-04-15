@@ -13,7 +13,7 @@ class BlogController extends Controller
     // }
 
     public function index (){
-        $blogs= Blog::all();
+        $blogs= Blog::paginate(3);
         return view('admin.Posts.allPosts',['blogs'=> $blogs]);
     }
 
@@ -38,7 +38,7 @@ Blog::create([
     'description'=>$request->description,
 
 ]);
-$blogs=Blog::all();
+$blogs=Blog::paginate(5);
         return redirect(route('posts.index' ,[ 'blogs'=>$blogs]));
     }
 
@@ -49,7 +49,7 @@ $blogs=Blog::all();
     }
 
     public function update(Request $request, Blog $id){
-        $blogs= Blog::all();
+        $blogs= Blog::paginate(5);
 
         if($request->image ){
 
@@ -77,4 +77,11 @@ $blogs=Blog::all();
         return back();
 
     }
+    public function homeBlog()
+    {
+        $latestBlogs=Blog::orderBy('id','desc')->take(3)->get();
+        dd($latestBlogs);
+        return view('front.home',compact('latestBlogs'));
+    }
+
 }

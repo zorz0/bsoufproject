@@ -41,6 +41,14 @@
                     <div class="table-toolbar">
                         <div class="row">
                             <div class="col-md-6">
+                                <div class="btn-group">
+                                    <a href="{{route('users.create')}}" id="sample_editable_1_new" class="btn sbold green"> أضافة عضو
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
                                 {{-- <div class="btn-group">
                                     <button id="sample_editable_1_new" class="btn sbold green"> أضافة فئة
                                         <i class="fa fa-plus"></i>
@@ -70,6 +78,7 @@
                             </div>
                         </div>
                     </div>
+
                     <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
                         <thead>
                             <tr>
@@ -87,6 +96,9 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($users as $user)
+
+
                             <tr class="odd gradeX">
                                 <td>
                                     <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
@@ -94,14 +106,14 @@
                                         <span></span>
                                     </label>
                                 </td>
-                                <td> shuxer </td>
+                                <td> {{$user->name}} </td>
                                 <td>
-                                    <a href="mailto:shuxer@gmail.com"> shuxer@gmail.com </a>
+                                    <a href="mailto:{{$user->email}}"> {{$user->email}} </a>
                                 </td>
                                 <td>
                                     <span class="label label-sm label-success"> اعتمد </span>
                                 </td>
-                                <td class="center"> 12 Jan 2012 </td>
+                                <td class="center">{{$user->created_at}} </td>
                                 <td>
                                     <div class="btn-group">
                                         <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
@@ -109,14 +121,23 @@
                                         </button>
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
-                                                <a href="{{url('addUser')}}">
+                                                <a href="{{route('users.edit',['id'=>$user->id])}}">
                                                     <i class="icon-user"></i> تعديل </a>
                                             </li>
+                                            @if($user->id != auth()->user()->id)
+                                            <li>
+                                                <a href="{{route('users.destroy',['id'=>$user->id])}}">
+                                                    <i class="icon-user"></i> حذف </a>
+
+                                                </li>
+                                                @endif
                                         </ul>
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="odd gradeX">
+                            @endforeach
+                            {{$users->links()}}
+                            {{-- <tr class="odd gradeX">
                                 <td>
                                     <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
                                         <input type="checkbox" class="checkboxes" value="1" />
@@ -811,7 +832,8 @@
                                         </ul>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> --}}
+
                         </tbody>
                     </table>
                 </div>
@@ -824,5 +846,5 @@
 <!-- END CONTENT -->
 @endsection
 @push('custom-scripts')
-<script src="{{asset('/assets')}}/pages/scripts/table-datatables-managed.min.js" type="text/javascript"></script>
+{{-- <script src="{{asset('/assets')}}/pages/scripts/table-datatables-managed.min.js" type="text/javascript"></script> --}}
 @endpush

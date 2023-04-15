@@ -50,7 +50,7 @@
             </a>
         </li>
         <li class="nav-item  ">
-            <a href="{{url('/dashboard/users')}}" class="nav-link ">
+            <a href="{{route('users.index')}}" class="nav-link ">
                 <i class="icon-users"></i>
                 <span class="title">الأعضاء</span>
             </a>
@@ -117,18 +117,18 @@
                 <span class="arrow"></span>
             </a>
             <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="{{url('/dashboard/orders')}}" class="nav-link ">
-                        <i class="icon-home"></i>
-                        <span class="title">الطلبات</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
+                    <li class="nav-item  ">
+                        <a href="{{route('orders.index')}}" class="nav-link ">
+                            <i class="icon-home"></i>
+                            <span class="title">الطلبات</span>
+                        </a>
+                    </li>
+                {{--  <li class="nav-item  ">
                     <a href="{{url('/dashboard/addOrder')}}" class="nav-link ">
                         <i class="icon-basket"></i>
                         <span class="title">اضافة طلب</span>
                     </a>
-                </li>
+                </li>  --}}
             </ul>
         </li>
         <li class="heading">

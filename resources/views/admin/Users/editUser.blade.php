@@ -17,64 +17,40 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>اضافة عضو</span>
+                <span>تعديل العضو</span>
             </li>
         </ul>
     </div>
     <!-- END PAGE BAR -->
     <!-- BEGIN PAGE TITLE-->
-    <h3 class="page-title"> اضافة عضو
+    <h3 class="page-title"> تعديل العضو
     </h3>
     <!-- END PAGE TITLE-->
     <div class="portlet-body form">
         <!-- BEGIN FORM-->
-        <form role="form" action="{{route('users.store')}}" method="POST">
+        <form role="form" action="{{route('users.update',['id'=>$user->id])}}" method="POST">
             @csrf
-
-
             <div class="form-group col-md-6">
                 <label class="control-label">الاسم</label>
-                <input type="text" placeholder="الاسم بالكامل" class="form-control" name="name" required>
+                <input type="text" value="{{$user->name}}" class="form-control" name="name" required>
             </div>
-            @error('name')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-            {{-- <div class="form-group col-md-6">
-                <label class="control-label">رقم الهاتف</label>
-                <input type="text" placeholder="0123456789" class="form-control">
-            </div> --}}
+
             <div class="form-group col-md-6">
                 <label class="control-label">البريد الالكتروني</label>
-                <input type="email" placeholder="User@gmail.com" class="form-control" name="email" required>
+                <input type="email" value="{{$user->email}}" class="form-control" name="email" required>
             </div>
-            @error('email')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-             <div class="form-group col-md-6">
+            {{-- <div class="form-group col-md-6">
                 <label class="control-label">كلمة المرور</label>
-                <input type="password" class="form-control" name="password">
-            </div>
-            @error('password')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-            {{-- <div class="form-group col-md-12">
-                <label class="control-label">الصورة الشخصية</label>
-                    <input type="file" accept="image/*" name="files[]" class="dropify" multiple/>
+                <input type="password" name="password" class="form-control">
             </div> --}}
-            <br>
             <div class="form-group col-md-12">
-            <button type="submit" class="btn green"> حفظ </button>
+                <button type="submit" class="btn green"> حفظ </button>
             </div>
+
         </form>
 
-    </div>
         <!-- END FORM-->
+    </div>
 </div>
 <!-- END CONTENT BODY -->
 <!-- END CONTENT -->

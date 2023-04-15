@@ -4,6 +4,8 @@ use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\Cardcontroller;
+use App\Http\Controllers\HomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +24,10 @@ Route::get('/', function () {
 })->name('index');
 
 
-Route::get('/news', function () {
-    return view('front.news');
-});
+// Route::get('/news', function () {
+//     return view('front.news');
+// });
+
 Route::get('/contact', function () {
     return view('front.contact');
 });
@@ -46,4 +49,7 @@ Route::get ('/card/store',[Cardcontroller::class,'store'])->name('card.store');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//  Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+ Route::get('/home', [HomeController::class,'index'])->name('home');
+ Route::get('/news', [HomeController::class,'blogs'])->name('news');
+ Route::get('/news/{id}', [HomeController::class,'blogDetails'])->name('news.details');

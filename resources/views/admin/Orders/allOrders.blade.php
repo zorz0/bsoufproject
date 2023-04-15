@@ -42,9 +42,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="btn-group">
-                                    <button id="sample_editable_1_new" class="btn sbold green"> أضافة طلب
+                                    <a href="{{route('orders.create')}}" id="sample_editable_1_new" class="btn sbold green"> أضافة طلب
                                         <i class="fa fa-plus"></i>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -92,6 +92,9 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($orders as $order)
+
+
                             <tr class="odd gradeX">
                                 <td>
                                     <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
@@ -99,14 +102,14 @@
                                         <span></span>
                                     </label>
                                 </td>
-                                <td> #123 </td>
+                                <td> {{$order->id}} </td>
                                 <td>
-                                    <a href="{{url('oneOrder')}}"> username </a>
+                                    <a href="{{url('oneOrder')}}"> {{$order->user()->name}} </a>
                                 </td>
                                 <td>
-                                    <span class="label label-sm label-success"> الاسكندرية , مصر </span>
+                                    <span class="label label-sm label-success"> {{$order->address}}</span>
                                 </td>
-                                <td class="center"> 12 Jan 2012 </td>
+                                <td class="center"> {{$order->created_at}} </td>
                                 <td>
                                     1000 ج
                                 </td>
@@ -156,7 +159,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="odd gradeX">
+                            {{-- <tr class="odd gradeX">
                                 <td>
                                     <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
                                         <input type="checkbox" class="checkboxes" value="1" />
@@ -1691,7 +1694,9 @@
                                         </ul>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> --}}
+                            @endforeach
+                            {{$orders->links()}}
                         </tbody>
                     </table>
                 </div>
@@ -1704,5 +1709,5 @@
 <!-- END CONTENT -->
 @endsection
 @push('custom-scripts')
-<script src="{{asset('/assets')}}/pages/scripts/table-datatables-managed.min.js" type="text/javascript"></script>
+{{-- <script src="{{asset('/assets')}}/pages/scripts/table-datatables-managed.min.js" type="text/javascript"></script> --}}
 @endpush

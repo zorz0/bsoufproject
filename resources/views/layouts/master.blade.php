@@ -76,31 +76,31 @@
             <div class="u-custom-menu u-nav-container">
                 <ul class="u-custom-font u-nav u-spacing-2 u-unstyled u-nav-1">
                     <li class="u-nav-item">
-                        <a class="u-active-custom-color-2 u-bottom-left-radius-50 u-bottom-right-radius-50 u-button-style u-hover-custom-color-2 u-nav-link u-text-active-white u-text-hover-white"
+                        <a class="mt-2 u-active-custom-color-2 u-bottom-left-radius-50 u-bottom-right-radius-50 u-button-style u-hover-custom-color-2 u-nav-link u-text-active-white u-text-hover-white"
                             href="{{url('/contact')}}">
                             تواصل معنا
                         </a>
                     </li>
                     <li class="u-nav-item">
-                        <a class="u-active-custom-color-2 u-bottom-left-radius-50 u-bottom-right-radius-50 u-button-style u-hover-custom-color-2 u-nav-link u-text-active-white u-text-hover-white"
+                        <a class="mt-2 u-active-custom-color-2 u-bottom-left-radius-50 u-bottom-right-radius-50 u-button-style u-hover-custom-color-2 u-nav-link u-text-active-white u-text-hover-white"
                             href="{{url('/about')}}">
                             من نحن
                         </a>
                     </li>
                     <li class="u-nav-item active">
-                        <a class="u-active-custom-color-2 u-bottom-left-radius-50 u-bottom-right-radius-50 u-button-style u-hover-custom-color-2 u-nav-link u-text-active-white u-text-hover-white"
+                        <a class="mt-2 u-active-custom-color-2 u-bottom-left-radius-50 u-bottom-right-radius-50 u-button-style u-hover-custom-color-2 u-nav-link u-text-active-white u-text-hover-white"
                             href="{{url('/')}}">
                             الرئيسية
                         </a>
                     </li>
                     <li class="u-nav-item">
-                        <a class="u-active-custom-color-2 u-bottom-left-radius-50 u-bottom-right-radius-50 u-button-style u-hover-custom-color-2 u-nav-link u-text-active-white u-text-hover-white"
+                        <a class="mt-2 u-active-custom-color-2 u-bottom-left-radius-50 u-bottom-right-radius-50 u-button-style u-hover-custom-color-2 u-nav-link u-text-active-white u-text-hover-white"
                             href="{{url('/store')}}">
                             المتجر
                         </a>
                     </li>
                     <li class="u-nav-item">
-                        <a class="u-active-custom-color-2 u-bottom-left-radius-50 u-bottom-right-radius-50 u-button-style u-hover-custom-color-2 u-nav-link u-text-active-white u-text-hover-white"
+                        <a class="mt-2 u-active-custom-color-2 u-bottom-left-radius-50 u-bottom-right-radius-50 u-button-style u-hover-custom-color-2 u-nav-link u-text-active-white u-text-hover-white"
                             href="{{url('/news')}}">
                             أخبارنا
                         </a>

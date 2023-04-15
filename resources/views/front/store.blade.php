@@ -141,7 +141,7 @@
 
 
 
-    <section class="container">
+    <section class="container my-5">
         <h2 class="text-center">نضمن لك عملية شراء سريعة ، مريحة وآمنة</h2>
         <div class="contentVa0">
             <img src="{{ asset('/assets/images/person.png') }}" alt="">
@@ -181,8 +181,51 @@
         <div class="contentVa0">
             <img src="{{ asset('/assets/images/heart.png') }}" alt="">
             <div class="contentVa">
-                <h2>الإستمتاع بألذ وأشهى المنتجات من بيت خيرات سوف</h2>
+                <h2 class="text-danger">الإستمتاع بألذ وأشهى المنتجات من بيت خيرات سوف</h2>
             </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="chooseEat container text-center py-2 my-5">
+            <h2 class="text-white">إختر ألذ وأشهى المنتجات</h2>
+        </div>
+    </section>
+
+    <section class="container chooseClass0 my-5">
+        <div class="d-flex justify-center">
+            <img src="{{ asset('/assets/images/soufKitchen.jpg') }}" alt="">
+        </div>
+        <div class="chooseClass">
+            <img src="{{ asset('/assets/images/friends.jpg') }}" alt="">
+            <h2>
+                تصنع منتجات بيت خيرات سوف من أيدي نساء أردنيات
+            </h2>
+        </div>
+        <div class="chooseClass">
+            <h2>
+                تحفظ في عبوات وأماكن مخصصة
+            </h2>
+            <img src="{{ asset('/assets/images/library.jpg') }}" alt="">
+        </div>
+        <div class="chooseClass">
+            <img src="{{ asset('/assets/images/kais.jpg') }}" alt="">
+            <h2>
+                تصلك مغلفة بإحكام جاهزة للأكل
+            </h2>
+        </div>
+    </section>
+
+    <section class="my-5">
+        <div class="chooseEatSuger container text-center py-2 my-5">
+            <h2 class="text-white">منتجات خالية من السكر تماما!</h2>
+        </div>
+    </section>
+
+
+    <section class="mt-5">
+        <div class="baitKhairatDate">
+            <h1 class="container">بيت خيرات سوف<br>قصة بدأت من عام ١٨٨١م <span><button class="knowBtn">اعرف عنها</button></span></h1>
         </div>
     </section>
 @endsection

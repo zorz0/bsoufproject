@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('product_images', function (Blueprint $table) {
             $table->increments("id");
-            $table->integer("product_size_id")->unsigned();
-            $table->foreign("product_size_id")->references("id")->on("product_size");
+            $table->integer("product_id")->unsigned();
+            $table->foreign("product_id")->references("id")->on("products")->onDelete("cascade")->onUpdate("cascade");
             $table->string("image");
             $table->timestamps();
         });

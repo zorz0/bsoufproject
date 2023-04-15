@@ -14,12 +14,16 @@ return new class extends Migration
         Schema::create('product_size', function (Blueprint $table) {
             $table->increments("id");
             $table->integer("product_id")->unsigned();
-            $table->foreign("product_id")->references("id")->on("products");
+            $table->foreign("product_id")->references("id")->on("products")->onDelete("cascade")->onUpdate("cascade");
+
             $table->string("size");
             $table->integer("quantity");
-            $table->decimal("price_two",8,2)->nullable();
+
+            $table->decimal("price",8,2)->nullable();
             $table->decimal("discount",8,2)->nullable();
-            $table->integer("status")->default(1);
+            $table->integer("in_Stock")->default(1);
+
+
             $table->timestamps();
         });
     }

@@ -35,17 +35,31 @@
                         <div class="portlet-title">
                             <div class="caption">
                                 <i class="icon-settings font-dark"></i>
+                                @if($_SERVER['REQUEST_URI'] == '/dashboard/categories' )
                                 <span class="caption-subject font-dark sbold uppercase">اضافة فئة جديدة</span>
+                                @else
+                                <span class="caption-subject font-dark sbold uppercase">تعديل فئة </span>
+@endif
                             </div>
                         </div>
                         <div class="portlet-body form">
-                            <form class="form-horizontal" role="form">
+                            @if($_SERVER['REQUEST_URI'] == '/dashboard/categories' )
+                            <form class="form-horizontal" action="{{route('categories.store')}}" method="POST" enctype="multipart/form-data" role="form">
+                               @csrf
+
                                 <div class="form-body">
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">اسم الفئة</label>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" placeholder="اسم الفئة">
+                                            <input type="text" name="name" class="form-control" placeholder="اسم الفئة" required>
                                             <span class="help-block"> ادخل هنا اسم الفئة. </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">صورة الفئة</label>
+                                        <div class="col-md-6">
+                                            <input type="file" name="image"  placeholder="صورة للفئة" required>
+                                            <span class="help-block"> ارفع هنا صورة للفئة. </span>
                                         </div>
                                     </div>
                                 </div>
@@ -58,6 +72,38 @@
                                     </div>
                                 </div>
                             </form>
+                            @endif
+                           {{-- {{dd($_SERVER['REQUEST_URI'])}} --}}
+@isset($category)
+                            <form class="form-horizontal" action="{{route('categories.update',['id'=>$category->id])}}" method="POST" enctype="multipart/form-data" role="form">
+                               @csrf
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">اسم الفئة</label>
+                                        <div class="col-md-6">
+                                            <input type="text" name="name" class="form-control" value="{{$category->name}}" required>
+                                            <span class="help-block">  ادخل هنا اسم الفئة الجديد .</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">صورة الفئة</label>
+                                        <div class="col-md-6">
+                                            <input type="file" name="image"  placeholder="صورة للفئة" >
+                                            <img src="./storage/imgs{{$category->image}}" alt="">
+                                            <span class="help-block"> ارفع هنا صورة جديدة للفئة . </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button type="submit" class="btn green">حفظ</button>
+                                            {{-- <button type="button" class="btn default">Cancel</button> --}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+@endisset
                         </div>
                     </div>
                 </div>
@@ -112,14 +158,15 @@
                                         <span></span>
                                     </label>
                                 </th>
-                                <th> اسم المستخدم </th>
-                                <th> البريد الالكتروني </th>
-                                <th> الحالة </th>
+                                <th> اسم الفئة </th>
+                                <th>صورة الفئة</th>
+
                                 <th> انضم في </th>
                                 <th> اجراءات </th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($categories as $category)
                             <tr class="odd gradeX">
                                 <td>
                                     <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
@@ -127,14 +174,12 @@
                                         <span></span>
                                     </label>
                                 </td>
-                                <td> shuxer </td>
+                                <td> {{$category->name}}</td>
                                 <td>
-                                    <a href="mailto:shuxer@gmail.com"> shuxer@gmail.com </a>
+                                <img src="/storage/imgs/{{$category->image}}"  width="100px" alt="">
                                 </td>
-                                <td>
-                                    <span class="label label-sm label-success"> اعتمد </span>
-                                </td>
-                                <td class="center"> 12 Jan 2012 </td>
+
+                                <td class="center"> {{$category->created_at}}</td>
                                 <td>
                                     <div class="btn-group">
                                         <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
@@ -142,18 +187,29 @@
                                         </button>
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
-                                                <a href="javascript:;">
-                                                    <i class="icon-docs"></i> تعديل </a>
+
+                                                    <a href="{{route('categories.edit',['id'=>$category->id])}}" >
+                                                        <i class="icon-docs"></i> تعديل </a>
+
                                             </li>
                                             <li>
+
+                                                    <a href="{{route('categories.destroy',['id'=>$category->id])}}" >
+                                                        <i class="icon-docs"></i> حذف  </a>
+
+                                            </li>
+                                            {{-- <li>
                                                 <a href="javascript:;">
                                                     <i class="icon-trash"></i> حذف </a>
-                                            </li>
+                                            </li> --}}
                                         </ul>
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="odd gradeX">
+@endforeach
+
+                            {{-- they will come from database --}}
+                            {{-- <tr class="odd gradeX">
                                 <td>
                                     <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
                                         <input type="checkbox" class="checkboxes" value="1" />
@@ -944,7 +1000,8 @@
                                         </ul>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> --}}
+                            {{-- end --}}
                         </tbody>
                     </table>
                 </div>

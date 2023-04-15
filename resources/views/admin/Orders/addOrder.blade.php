@@ -35,11 +35,65 @@
                         <div class="form-group">
                             <label class="control-label col-md-3"> الاسم العميل</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" placeholder="احمد حسن علي">
-                                <span class="help-block"> اسم العميل يكتب هنا </span>
+
+
+                                <select class="form-control" name="user_id" data-placeholder="اسم العميل" tabindex="1">
+                                    @foreach($users as $value)
+
+                                    <option value="{{$value["id"]}}">{{$value["name"]}}</option>
+                                {{--  foreach ->category table  --}}
+                                @endforeach
+                                </select>
+                               <a href="{{route('users.create')}}"> <span class="help-block"> سجل العميل لأول مرة هنا </span></a>
+
+
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6" style="padding-top: 20px;">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">  المنتج</label>
+                            <div class="col-md-9">
+
+
+                                <select class="form-control" name="user_id" data-placeholder="اسم المنتج" tabindex="1">
+                                    @foreach($products as $value)
+
+                                    <option value="{{$value["id"]}}">{{$value["name"]}}</option>
+                                {{--  foreach ->category table  --}}
+
+
+                                @endforeach
+                                </select>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" style="padding-top: 20px;">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">  وزن المنتج</label>
+                            <div class="col-md-9">
+
+                                <select class="form-control" name="user_id" data-placeholder="وزن المنتج" tabindex="1">
+                                    @foreach($ProductSizes as $size)
+
+                                    {{--  @if ($size->product_id == $value->name )  --}}
+
+                                    <option value="{{$size["id"]}}">{{$size["size"]}}</option>
+                                    {{--  foreach ->category table  --}}
+                                    {{--  @endif  --}}
+                                @endforeach
+                                </select>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-md-6" style="padding-top: 20px;">
                         <div class="form-group">
                             <label class="control-label col-md-3">رقم الهاتف</label>

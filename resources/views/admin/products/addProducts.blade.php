@@ -28,24 +28,25 @@
     <!-- END PAGE TITLE-->
     <div class="portlet-body form">
         <!-- BEGIN FORM-->
-        <form action="#" class="form-horizontal">
+        <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+            @csrf
             <div class="form-body">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label col-md-3">نموذج الاسم</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" placeholder="قهوة مثلا">
+                                <input type="text" class="form-control" name="name" placeholder="قهوة مثلا">
                                 <span class="help-block"> اسم المنتج يكتب هنا </span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="control-label col-md-3">الكمية</label>
+                            <label class="control-label col-md-3">الخصم</label>
                             <div class="col-md-9">
-                                <input type="number" class="form-control" placeholder="100">
-                                <span class="help-block"> كمية المنتج يكتب هنا </span>
+                                <input type="number" name="discount_price" class="form-control" placeholder="100">
+                                <span class="help-block"> الخصم علي المنتج يكتب هنا </span>
                             </div>
                         </div>
                     </div>
@@ -53,7 +54,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3">السعر</label>
                             <div class="col-md-9">
-                                <input type="number" class="form-control" placeholder="100">
+                                <input type="number" name="price" class="form-control" placeholder="100">
                                 <span class="help-block">سعر المنتج يكتب هنا </span>
                             </div>
                         </div>
@@ -65,12 +66,17 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3">الفئة</label>
                                 <div class="col-md-9">
-                                    <select class="form-control" data-placeholder="اختر فئة" tabindex="1">
-                                        <option value="1">فئة 1</option>
-                                        <option value="2">فئة 2</option>
-                                        <option value="3">فئة 5</option>
-                                        <option value="4">فئة 4</option>
+
+
+                                    <select class="form-control" name="category_id" data-placeholder="اختر فئة" tabindex="1">
+                                        @foreach($Category as $value)
+
+                                        <option value="{{$value["id"]}}">{{$value["name"]}}</option>
+                                    {{--  foreach ->category table  --}}
+                                    @endforeach
                                     </select>
+
+
                                 </div>
                             </div>
                         </div>
@@ -81,18 +87,21 @@
                             <label class="col-md-3 pb-15">وصف المنتج</label>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <textarea class="ckeditor form-control" name="editor1" rows="6"></textarea>
+                                    <textarea id="description" class="form-control" name="description" rows="6"></textarea>
                                 </div>
                             </div>
                         </div>
                         <!--/row-->
                     </div>
+
+
+
                     <div class="row">
                         <div class="col-md-12">
                             <label class="col-md-3 pb-15">الصورة الرئيسية</label>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input type="file" accept="image/*" name="files[]" class="dropify" multiple/>
+                                    <input type="file" accept="image/*" name="image" class="dropify" />
 
                                 </div>
                             </div>
@@ -105,7 +114,7 @@
                             <label class="col-md-3 pb-15">الصور</label>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input type="file" accept="image/*" name="files[]" class="dropify" multiple/>
+                                    <input type="file" accept="image/*" name="productimages[]" class="dropify" multiple/>
 
                                 </div>
                             </div>

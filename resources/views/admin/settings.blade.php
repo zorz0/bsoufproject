@@ -19,9 +19,17 @@
             </ul>
         </div>
         <!-- END PAGE BAR -->
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif
         <!-- BEGIN PAGE TITLE-->
         <h3 class="page-title"> اعدادات الموقع
         </h3>
+        @if ($errors->any())
+            {!! implode('', $errors->all('<div>:message</div>')) !!}
+        @endif
         <!-- END PAGE TITLE-->
         <div class="portlet-body form">
             <!-- BEGIN FORM-->
@@ -31,55 +39,62 @@
                 @method('put')
                 <div class="form-group col-md-4">
                     <label class="control-label">اسم الموقع</label>
-                    <input type="text" placeholder="الاسم بالكامل" class="form-control" name="title" >
+                    <input type="text" placeholder="الاسم بالكامل" class="form-control" name="title"
+                        value="{{ $setting->title }}">
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">رقم الهاتف</label>
-                    <input type="text" placeholder="0123456789" name="phone" class="form-control">
+                    <input type="text" placeholder="0123456789" name="phone" class="form-control"
+                        value="{{ $setting->phone }}">
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">العملة الرئيسية</label>
-                    <input type="text" placeholder="د.أ" name="currency" class="form-control">
+                    <input type="text" placeholder="د.أ" name="currency" class="form-control"
+                        value="{{ $setting->currency }}">
                 </div>
                 <div class="form-group col-md-6">
                     <label class="control-label">الشعار</label>
                     <input type="file" accept="image/" name="logo" />
+                    <img src="value='{{ $setting->logo }}'" width="50px" alt="">
                 </div>
                 <div class="form-group col-md-6">
                     <label class="control-label">الصورة المصغرة بالرابط</label>
                     <input type="file" accept="image/" name="favicon" />
+                    <img src="value='{{ $setting->favicon }}'" width="50px" alt="">
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label">صور البانر</label>
                     <input type="file" accept="image/*" name="panerImgs" class="dropify" multiple />
+                    <img src="value='{{ $setting->panerImgs }}'" width="50px" alt="">
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">البريد الالكتروني للموقع</label>
-                    <input type="email" placeholder="User@gmail.com" name="email" class="form-control" >
+                    <input type="email" placeholder="User@gmail.com" name="email" class="form-control"
+                        value="{{ $setting->email }}">
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">العنوان</label>
-                    <input type="text" class="form-control" name="address">
+                    <input type="text" class="form-control" name="address" value="{{ $setting->address }}">
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">فيسبوك</label>
-                    <input type="text" class="form-control" name="facebook">
+                    <input type="text" class="form-control" name="facebook" value="{{ $setting->facebook }}">
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">تويتر</label>
-                    <input type="text" class="form-control" name="twitter">
+                    <input type="text" class="form-control" name="twitter" value="{{ $setting->twitter }}">
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">انستجرام</label>
-                    <input type="text" class="form-control" name="instagram">
+                    <input type="text" class="form-control" name="instagram" value="{{ $setting->instagram }}">
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">يوتيوب</label>
-                    <input type="text" class="form-control" name="youtube">
+                    <input type="text" class="form-control" name="youtube" value="{{ $setting->youtube }}">
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label">عن الموقع</label>
-                    <textarea class="ckeditor form-control" name="description" rows="6"></textarea>
+                    <textarea class="ckeditor form-control" name="description" rows="6">{{ $setting->description }}</textarea>
                 </div>
                 <button type="submit" class="btn green"> حفظ </button>
             </form>

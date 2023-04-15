@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('order_details', function (Blueprint $table) {
             $table->increments("id");
             $table->integer("order_id")->unsigned();
-            $table->foreign("order_id")->references("id")->on("orders");
-            $table->integer("product_size_id")->unsigned();
-            $table->foreign("product_size_id")->references("id")->on("product_size");
+            $table->foreign("order_id")->references("id")->on("orders")->onDelete("cascade")->onUpdate("cascade");
+
             $table->integer("quantity");
             $table->decimal("price",8,2)->nullable();
             $table->decimal("discount",8,2)->nullable();

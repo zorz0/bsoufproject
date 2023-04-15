@@ -12,9 +12,9 @@ class ProductSize extends Model
         "product_id",
         "size",
         "quantity",
-        "price_two",
         "discount",
-        "status"
+        "status",
+        "price"
     ];
     protected $table = "product_size";
     public function product()

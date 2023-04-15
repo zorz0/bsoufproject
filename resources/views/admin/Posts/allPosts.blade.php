@@ -6,14 +6,15 @@
 <div class="page-content">
     <!-- BEGIN PAGE HEADER-->
     <!-- BEGIN PAGE BAR -->
+
     <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
-                <a href="index.html">الرئيسية</a>
+                <a href="{{url('/dashboard/index')}}">الرئيسية</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="#">المقالات</a>
+                <a href="{{route('posts.index')}}">المقالات</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
@@ -42,9 +43,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="btn-group">
-                                    <button id="sample_editable_1_new" class="btn sbold green"> أضافة مقال
+                                    <a href="{{route('posts.create')}}" id="sample_editable_1_new" class="btn sbold green"> أضافة مقال
                                         <i class="fa fa-plus"></i>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -80,11 +81,70 @@
                                     </label>
                                 </th>
                                 <th> عنوان المقال</th>
+                                <th>  صورة المقال</th>
                                 <th> اجراءات </th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($blogs as $blog)
+
+
                             <tr class="odd gradeX">
+                                <td>
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="checkboxes" value="1" />
+                                        <span></span>
+                                    </label>
+                                </td>
+                                <td> {{$blog->title}}</td>
+
+                                <td>
+                                    <img src="/storage/imgs/{{$blog->image}}"  width="100px" alt="">
+                                    </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
+                                            <i class="fa fa-angle-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            {{--  <li>
+                                                <a href="{{route('posts.create')}}">
+                                                    <i class="icon-docs"></i> اضافة مقال جديد </a>
+                                            </li>  --}}
+                                            <li>
+                                                <a href="{{route('posts.edit',['id'=>$blog->id])}}">
+                                                    <i class="icon-docs"></i> تعديل </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('posts.destroy',['id'=>$blog->id])}}">
+                                                    <i class="icon-docs"></i> حذف </a>
+                                            </li>
+                                            {{-- <li>
+                                                <a href="javascript:;">
+                                                    <i class="icon-tag"></i> New Comment </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="icon-user"></i> New User </a>
+                                            </li>
+                                            <li class="divider"> </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="icon-flag"></i> Comments
+                                                    <span class="badge badge-success">4</span>
+                                                </a>
+                                            </li> --}}
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            @endforeach
+
+
+
+                            {{-- we get them from data base  --}}
+                            {{-- <tr class="odd gradeX">
                                 <td>
                                     <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
                                         <input type="checkbox" class="checkboxes" value="1" />
@@ -897,44 +957,7 @@
                                         </ul>
                                     </div>
                                 </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td> عنوان المقال تفصيلي </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <i class="icon-docs"></i> New Post </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <i class="icon-tag"></i> New Comment </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <i class="icon-user"></i> New User </a>
-                                            </li>
-                                            <li class="divider"> </li>
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <i class="icon-flag"></i> Comments
-                                                    <span class="badge badge-success">4</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>

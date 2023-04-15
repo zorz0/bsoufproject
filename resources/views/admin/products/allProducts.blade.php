@@ -37,17 +37,20 @@
                         <span class="caption-subject bold uppercase"> المنتجات</span>
                     </div>
                 </div>
+
                 <div class="portlet-body">
                     <div class="table-toolbar">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="btn-group">
-                                    <button id="sample_editable_1_new" class="btn sbold green"> أضافة منتج
+                                 <a href="{{ route('product.create') }}"> <button id="sample_editable_1_new" class="btn sbold green"> أضافة منتج
                                         <i class="fa fa-plus"></i>
                                     </button>
+
+                                </a>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            {{--  <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">أدوات
                                         <i class="fa fa-angle-down"></i>
@@ -69,7 +72,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>  --}}
+
                     <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
                         <thead>
                             <tr>
@@ -79,13 +83,21 @@
                                         <span></span>
                                     </label>
                                 </th>
-                                <th> صورة المنتج </th>
+                                <th>#</th>
+
+
                                 <th> اسم المنتج </th>
+                                <th> نوع المنتج </th>
+
                                 <th> سعر المنتج</th>
-                                <th> الكمية </th>
+                                <th> نسبة الخصم </th>
+                                <th> صورة المنتج </th>
                                 <th> اجراءات </th>
                             </tr>
                         </thead>
+                     @foreach($data as $value)
+
+
                         <tbody>
                             <tr class="odd gradeX">
                                 <td>
@@ -94,47 +106,19 @@
                                         <span></span>
                                     </label>
                                 </td>
+                                <td>{{ $value['id'] }}</td>
+
+                                <td> {{ $value['name'] }}</td>
                                 <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
+                                   {{ $value->category['name'] }}
                                 </td>
-                                <td> منتج 1 </td>
+                                <td class="center">  {{ $value['price'] }} </td>
+                                <td>{{ $value['discount_price'] }}</td>
+
                                 <td>
-                                    160 د.أ
+                                    <img width="100px" src="/storage/img/{{ $value->image }}">
                                 </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
+
                                 <td>
                                     <div class="btn-group">
                                         <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
@@ -142,546 +126,30 @@
                                         </button>
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
-                                                <a href="{{url('addProduct')}}">
+                                                <a href="{{route('product.edit',$value["id"])}}">
+
                                                     <i class="icon-docs"></i> تعديل المنتج </a>
                                             </li>
                                             <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
+                                                <a href="{{route('productSize.create',$value["id"])}}">
+
+                                                    <i class="icon-docs"></i> اضافة وزن المنتج </a>
+                                            </li>
+                                            <li>
+
+                                                   <a href="{{ route('product.destroy', $value->id) }}"> <i class="icon-trash"></i> حذف </a>
+
+                                                {{--  <a href="{{route('product.destroy',$value["id"])}}">
+                                                    </a>  --}}
                                             </li>
                                         </ul>
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="odd gradeX">
-                                <td>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" class="checkboxes" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="item-pic rounded" src="{{asset('/assets')}}/pages/media/users/avatar4.jpg">
-                                </td>
-                                <td> منتج 1 </td>
-                                <td>
-                                    160 د.أ
-                                </td>
-                                <td class="center"> 100 </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> اجراءات
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-docs"></i> تعديل المنتج </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('addProduct')}}">
-                                                    <i class="icon-trash"></i> حذف </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+
                         </tbody>
+
+                        @endforeach
                     </table>
                 </div>
             </div>
@@ -693,5 +161,5 @@
 <!-- END CONTENT -->
 @endsection
 @push('custom-scripts')
-<script src="{{asset('/assets')}}/pages/scripts/table-datatables-managed.min.js" type="text/javascript"></script>
+{{--  <script src="{{asset('/assets')}}/pages/scripts/table-datatables-managed.min.js" type="text/javascript"></script>  --}}
 @endpush

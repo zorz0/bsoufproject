@@ -50,7 +50,7 @@
             </a>
         </li>
         <li class="nav-item  ">
-            <a href="{{url('/dashboard/users')}}" class="nav-link ">
+            <a href="{{route('users.index')}}" class="nav-link ">
                 <i class="icon-users"></i>
                 <span class="title">الأعضاء</span>
             </a>
@@ -97,13 +97,13 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="{{url('/dashboard/products')}}" class="nav-link ">
+                    <a href="{{route('product')}}" class="nav-link ">
                         <i class="icon-home"></i>
                         <span class="title">المنتجات</span>
                     </a>
                 </li>
                 <li class="nav-item  ">
-                    <a href="{{url('/dashboard/addProduct')}}" class="nav-link ">
+                    <a href="{{route('product.create')}}" class="nav-link ">
                         <i class="icon-basket"></i>
                         <span class="title">اضافة منتج</span>
                     </a>
@@ -117,18 +117,18 @@
                 <span class="arrow"></span>
             </a>
             <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="{{url('/dashboard/orders')}}" class="nav-link ">
-                        <i class="icon-home"></i>
-                        <span class="title">الطلبات</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
+                    <li class="nav-item  ">
+                        <a href="{{route('orders.index')}}" class="nav-link ">
+                            <i class="icon-home"></i>
+                            <span class="title">الطلبات</span>
+                        </a>
+                    </li>
+                {{--  <li class="nav-item  ">
                     <a href="{{url('/dashboard/addOrder')}}" class="nav-link ">
                         <i class="icon-basket"></i>
                         <span class="title">اضافة طلب</span>
                     </a>
-                </li>
+                </li>  --}}
             </ul>
         </li>
         <li class="heading">
@@ -142,7 +142,7 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="{{url('/dashboard/categories')}}" class="nav-link ">
+                    <a href="{{route('categories.index')}}" class="nav-link ">
                         <i class="icon-docs"></i>
                         <span class="title">جميع الفئات</span>
                     </a>
@@ -157,13 +157,13 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="{{url('/dashboard/posts')}}" class="nav-link ">
+                    <a href="{{route('posts.index')}}" class="nav-link ">
                         <i class="icon-docs"></i>
                         <span class="title">المقالات</span>
                     </a>
                 </li>
                 <li class="nav-item  ">
-                    <a href="{{url('/dashboard/addPost')}}" class="nav-link ">
+                    <a href="{{route('posts.create')}}" class="nav-link ">
                         <i class="icon-layers"></i>
                         <span class="title">اضافة مقال</span>
                     </a>

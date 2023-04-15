@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Http\Controllers\Dashboard;
+use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\ProductSize;
+use App\Models\User;
+use Illuminate\Http\Request;
+
+class OrderController extends Controller
+{
+public function index(){
+    $orders=Order::paginate(3);
+    return view('admin.Orders.allOrders',['orders'=>$orders]);
+}
+public function create(){
+    $users=User::all();
+    $products=Product::all();
+    $ProductSizes=ProductSize::all();
+    return view('admin.Orders.addOrder',['users'=>$users,
+    'products'=>$products,
+'ProductSizes'=>$ProductSizes]);
+}
+}

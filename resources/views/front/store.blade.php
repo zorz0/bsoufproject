@@ -117,27 +117,72 @@
                             src="{{ asset('/assets/bks') }}/images/khayba.jpg"></a>
                 </div>
             </div>
-        </div>
-  @foreach($data as $value)
+            @foreach ($data as $value)
+                <div class="col-sm-6 col-md-3 my-3">
+                    <a style="text-decoration: none" href="{{ route('showProduct', $value['id']) }}">
+                        <div class="product">
+                            <h3>{{ $value['name'] }} </h3>
+                            <p>{{ $value['description'] }}</p>
+                            <hr class="myhr">
+                            <a href="{{ route('showProduct', $value['id']) }}"><img class="myimg" alt="product"
+                                    src="/storage/img/{{ $value->image }}"></a>
+                            <hr class="myhr">
+                            <h3>
+                                {{ $value['price'] }}
 
-        <div class="col-sm-6 col-md-3">
-            <a style="text-decoration: none"  href="{{ route('showProduct',$value['id']) }}">
-            <div class="product">
-                <h3>{{ $value['name'] }} </h3>
-                <p>{{ $value['description'] }}</p>
-                <hr class="myhr">
-                <a href="{{ route('showProduct',$value['id']) }}"><img class="myimg" alt="product" src="/storage/img/{{ $value->image }}"></a>
-                <hr class="myhr">
-                <h3>
-                   {{ $value['price'] }}
+                            </h3>
+                        </div>
+                    </a>
 
-                </h3>
+                </div>
+            @endforeach
+
+    </section>
+
+
+
+    <section class="container">
+        <h2 class="text-center">نضمن لك عملية شراء سريعة ، مريحة وآمنة</h2>
+        <div class="contentVa0">
+            <img src="{{ asset('/assets/images/person.png') }}" alt="">
+            <div class="contentVa">
+                <h2>تسجيل الدخول</h2>
+                <p>أضف معلوماتك (اسمك ، رقم هاتفك ، موقعك)</p>
             </div>
-        </a>
-
         </div>
-
-      @endforeach
-
-</section>
+        <div class="contentVa0">
+            <img src="{{ asset('/assets/images/chart.png') }}" alt="">
+            <div class="contentVa">
+                <h2>أضف منتجاتك للسلة</h2>
+                <p>أضف منتجاتك المفضلة للسلة</p>
+            </div>
+        </div>
+        <div class="contentVa0">
+            <img src="{{ asset('/assets/images/rightSign.png') }}" alt="">
+            <div class="contentVa">
+                <h2>تأكيد طلبك</h2>
+                <p>أكد طلبك بعد التحقق من الطلبات وقيمة الفاتورة النهائية</p>
+            </div>
+        </div>
+        <div class="contentVa0">
+            <img src="{{ asset('/assets/images/customer.png') }}" alt="">
+            <div class="contentVa">
+                <h2>تأكيد موعد وموقع التسليم</h2>
+                <p>سيتواصل معك موظف خدمة العملاء لتأكيد موعد وموقع التسليم</p>
+            </div>
+        </div>
+        <div class="contentVa0">
+            <img src="{{ asset('/assets/images/car.png') }}" alt="">
+            <div class="contentVa">
+                <h2>توصيل وإستلام الطلب خلال ٢٤ ساعة والدفع</h2>
+                <p>توصيل منتجاتك لك لتستلمها، ودفع ثمنها</p>
+            </div>
+        </div>
+        <div class="contentVa0">
+            <img src="{{ asset('/assets/images/heart.png') }}" alt="">
+            <div class="contentVa">
+                <h2>الإستمتاع بألذ وأشهى المنتجات من بيت خيرات سوف</h2>
+            </div>
+        </div>
+    </section>
 @endsection

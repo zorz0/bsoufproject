@@ -13,6 +13,7 @@ class Order extends Model
         "status",
         "total_price",
         "address",
+        "name",
         "phone",
         "postal_code",
         "shipping_price"

@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string("total_price");
             $table->string("address");
             $table->string("phone");
-            
+            $table->string("name");
+
             $table->string("shipping_price")->nullable();
 
             $table->string("postal_code")->nullable();

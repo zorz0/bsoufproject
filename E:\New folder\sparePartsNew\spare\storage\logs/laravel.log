@@ -1,0 +1,16 @@
+[2023-04-16 07:23:37] local.ERROR: Uncaught Symfony\Component\Finder\Exception\DirectoryNotFoundException: The "E:\New folder\sparePartsNew\spare\resources\views" directory does not exist. in /home/abdo/Desktop/project/spare/vendor/symfony/finder/Finder.php:638
+Stack trace:
+#0 /home/abdo/Desktop/project/spare/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(569): Symfony\Component\Finder\Finder->in()
+#1 Command line code(1): Illuminate\Filesystem\Filesystem->files()
+#2 Command line code(1): getViews()
+#3 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Symfony\\Component\\Finder\\Exception\\DirectoryNotFoundException: The \"E:\\New folder\\sparePartsNew\\spare\\resources\\views\" directory does not exist. in /home/abdo/Desktop/project/spare/vendor/symfony/finder/Finder.php:638
+Stack trace:
+#0 /home/abdo/Desktop/project/spare/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(569): Symfony\\Component\\Finder\\Finder->in()
+#1 Command line code(1): Illuminate\\Filesystem\\Filesystem->files()
+#2 Command line code(1): getViews()
+#3 {main}
+  thrown at /home/abdo/Desktop/project/spare/vendor/symfony/finder/Finder.php:638)
+[stacktrace]
+#0 {main}
+"} 

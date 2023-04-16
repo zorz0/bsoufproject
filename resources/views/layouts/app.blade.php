@@ -18,6 +18,8 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
+    @include('sweetalert::alert')
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -73,14 +75,26 @@
 
 
                         @endguest
-                        @auth
+                        @isset(Auth::user()->role)
+                            
+                        @if(Auth::user()->role == 'user')
                         <li>
                             <a class="nav-icon position-relative text-decoration-none" href="{{ route('totalCards') }}">
                                 <i  class="fa fa-fw fa-cart-arrow-down text-dark mr-1">
                                  <span  class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">{{count(Auth::user()->cards)}}</span> </i>
                            </a>
                         </li>
-                        @endauth
+                        @endif
+                        @if(Auth::user()->role == 'admin')
+                        <li>
+                            <a class="nav-icon position-relative text-decoration-none" href="{{ url('/dashboard/orders')}}">
+                                <i  class="fa-solid fa-bell text-dark mr-1">
+                                 <span  class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">{{count(Auth::user()->orders)}}</span> </i>
+                           </a>
+                        </li>
+                        @endif
+
+                        @endisset
 
                     </ul>
                 </div>

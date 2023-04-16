@@ -56,9 +56,11 @@ Route::get ('/card/destroy/{id}',[Cardcontroller::class,'destroy'])->name('card.
 
 ///end card
 
-///save order
+///save order for web site
 
 Route::post ('/order/createorder',[OrderController::class,'createorder'])->name('createorder');
+Route::post ('/order/store',[OrderController::class,'store'])->name('order.store');
+
 
 ////end save order
 Auth::routes();

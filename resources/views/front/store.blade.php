@@ -126,17 +126,25 @@
                             <h3>{{ $value['name'] }}</h3>
                             <p>{{ $value['description'] }}</p>
                             <hr class="myhr">
-                            <img class="myimg" alt="product" src="/storage/img/{{ $value->image }}">
+                            <img class="myimg" width="" alt="product" src="/storage/img/{{ $value->image }}">
                             <hr class="myhr">
                             @auth
+
+                            @if(!empty($productSizes[0]))
+                                
+                            
                                 <select name="productSizeId" id="">
                                     @foreach ($productSizes as $size)
+                                    
                                         @if ($value->id == $size->product_id)
                                             <option value="{{ $size['id'] }}"> {{ $size['size'] }}</option>
                                         @endif
                                     @endforeach
                                 </select>
+                                
                                 <button type="submit"> اعرض المنتج</button>
+
+                                @endif
                             @endauth
                         </div>
                     </form>

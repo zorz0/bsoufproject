@@ -1,6 +1,9 @@
 @extends('layouts.admin_master')
 @extends('layouts.sidemenu')
 @section('content')
+
+@include('sweetalert::alert')
+
 <!-- BEGIN CONTENT -->
 <!-- BEGIN CONTENT BODY -->
 <div class="page-content">
@@ -104,7 +107,7 @@
                                 </td>
                                 <td> {{$order->id}} </td>
                                 <td>
-                                    <a href="{{url('oneOrder')}}"> {{$order->user()->name}} </a>
+                                    {{--  <a > {{$order->user()->name}} </a>  --}}
                                 </td>
                                 <td>
                                     <span class="label label-sm label-success"> {{$order->address}}</span>
@@ -117,17 +120,44 @@
                                     1200 ج
                                 </td>
                                 <td>
-                                    <span> </span>
-                                    <select
-                                        class="table-group-action-input form-control input-inline input-small input-sm">
-                                        <option value="">Select...</option>
-                                        <option value="Cancel">Cancel</option>
-                                        <option value="Cancel">Hold</option>
-                                        <option value="Cancel">On Hold</option>
-                                        <option value="Close">Close</option>
-                                    </select>
-                                    <button class="btn btn-sm btn-default table-group-action-submit">
-                                        <i class="fa fa-check"></i> Submit</button>
+                                    <div class="btn-group">
+                                        @if($order->status=='accept')
+
+                                        <button class="btn btn-xs green dropdown-toggle" type="button"
+                                        data-toggle="dropdown" aria-expanded="false"> مقبول
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                     @endif
+                                     @if($order->status=='reject')
+
+                                     <button class="btn btn-xs red dropdown-toggle" type="button"
+                                     data-toggle="dropdown" aria-expanded="false"> مرفوض
+                                     <i class="fa fa-angle-down"></i>
+                                 </button>
+                                  @endif 
+                                  @if ($order->status=='pendding')
+                                      
+                                  
+                                        <button class="btn btn-xs yellow dropdown-toggle" type="button"
+                                            data-toggle="dropdown" aria-expanded="false"> تحت المراجعة
+                                            <i class="fa fa-angle-down"></i>
+                                        </button>
+
+
+                                     
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="{{ route('update.status',['id'=>$order->id,'status'=>'accept']) }}">
+                                                    <i class="icon-docs"></i> مقبول </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('update.status',['id'=>$order->id,'status'=>'reject']) }}">
+                                                    <i class="icon-tag"></i> مرفوض </a>
+                                            </li>
+                                      
+                                        </ul>
+                                        @endif
+                                    </div>
                                 </td>
                                 <td>
                                     <div class="btn-group">

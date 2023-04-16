@@ -88,4 +88,6 @@ Route::post('productSize/store',[ProductSizeController::class,'store'])->name('p
 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 Route::get('/orders/create', [OrderController::class, 'create'])->name('orders.create');
 
+Route::get('/update/status/{id}/{status}', [OrderController::class, 'updateStatus'])->name('update.status');
+
 // Route::put('/settings/{id}/update', [SettingController::class, 'update'])->name('admin.settings.update');

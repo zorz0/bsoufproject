@@ -130,6 +130,9 @@
                 <hr class="myhr">
                 <img class="myimg" alt="product" src="/storage/img/{{ $value->image }}">
                 <hr class="myhr">
+                @auth
+
+
                 <select name="productSizeId" id="">
                 @foreach($productSizes as $size)
                 @if($value->id==$size->product_id)
@@ -149,7 +152,7 @@
 
                 <button type="submit"> اعرض المنتج</button>
 
-
+                @endauth
 </div>
 
         </div>

@@ -62,7 +62,7 @@
             </div>
         </div>
     </section>
-    <section class="u-clearfix u-section-1 container">
+    <section class="u-clearfix u-section-1">
         <div class="row store">
             <div class="container">
 
@@ -109,26 +109,28 @@
             </div>
         </div>
     </section>
-
-    <section class="u-clearfix u-section-1 container-fluid">
+    <section class="u-clearfix u-section-1">
         <div class="row store">
-            <div class="ct-blog col-sm-6 col-md-3 my-3">
+            <div class="ct-blog col-sm-6 col-md-2">
                 <div class="fauxcrop">
                     <a href="#"><img class="category" alt="khayba"
                             src="{{ asset('/assets/bks') }}/images/khayba.jpg"></a>
                 </div>
             </div>
+
             @foreach ($data as $value)
-                <div class="col-sm-6 col-md-3 my-3">
-                    <form id="FormCard" action="{{ route('showProduct', ['id' => $value['id']]) }}" method="post">
-                        @csrf
-                        <div class="product">
-                            <h3>{{ $value['name'] }}</h3>
+                <form id="FormCard" action="{{ route('showProduct', ['id' => $value['id']]) }}" method="post">
+                    @csrf
+                    <div id="card" class="col-md-3">
+                        <div class="product" style="height: 350px">
+                            <h3>{{ $value['name'] }} </h3>
+
                             <p>{{ $value['description'] }}</p>
                             <hr class="myhr">
                             <img class="myimg" alt="product" src="/storage/img/{{ $value->image }}">
                             <hr class="myhr">
                             @auth
+
                                 <select name="productSizeId" id="">
                                     @foreach ($productSizes as $size)
                                         @if ($value->id == $size->product_id)
@@ -136,102 +138,23 @@
                                         @endif
                                     @endforeach
                                 </select>
+                                <h3>
+                                    {{--  {{ $value['price'] }}  --}}
+
+
+                                </h3>
+
                                 <button type="submit"> اعرض المنتج</button>
                             @endauth
+
+
                         </div>
-                    </form>
-                </div>
+
+                    </div>
+
+
+                </form>
             @endforeach
-        </div>
-
-    </section>
-
-    <section class="container my-5">
-        <h2 class="text-center">نضمن لك عملية شراء سريعة ، مريحة وآمنة</h2>
-        <div class="contentVa0">
-            <img src="{{ asset('/assets/images/person.png') }}" alt="">
-            <div class="contentVa">
-                <h2>تسجيل الدخول</h2>
-                <p>أضف معلوماتك (اسمك ، رقم هاتفك ، موقعك)</p>
-            </div>
-        </div>
-        <div class="contentVa0">
-            <img src="{{ asset('/assets/images/chart.png') }}" alt="">
-            <div class="contentVa">
-                <h2>أضف منتجاتك للسلة</h2>
-                <p>أضف منتجاتك المفضلة للسلة</p>
-            </div>
-        </div>
-        <div class="contentVa0">
-            <img src="{{ asset('/assets/images/rightSign.png') }}" alt="">
-            <div class="contentVa">
-                <h2>تأكيد طلبك</h2>
-                <p>أكد طلبك بعد التحقق من الطلبات وقيمة الفاتورة النهائية</p>
-            </div>
-        </div>
-        <div class="contentVa0">
-            <img src="{{ asset('/assets/images/customer.png') }}" alt="">
-            <div class="contentVa">
-                <h2>تأكيد موعد وموقع التسليم</h2>
-                <p>سيتواصل معك موظف خدمة العملاء لتأكيد موعد وموقع التسليم</p>
-            </div>
-        </div>
-        <div class="contentVa0">
-            <img src="{{ asset('/assets/images/car.png') }}" alt="">
-            <div class="contentVa">
-                <h2>توصيل وإستلام الطلب خلال ٢٤ ساعة والدفع</h2>
-                <p>توصيل منتجاتك لك لتستلمها، ودفع ثمنها</p>
-            </div>
-        </div>
-        <div class="contentVa0">
-            <img src="{{ asset('/assets/images/heart.png') }}" alt="">
-            <div class="contentVa">
-                <h2 class="text-danger">الإستمتاع بألذ وأشهى المنتجات من بيت خيرات سوف</h2>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="chooseEat container text-center py-2 my-5">
-            <h2 class="text-white">إختر ألذ وأشهى المنتجات</h2>
-        </div>
-    </section>
-
-    <section class="container chooseClass0 my-5">
-        <div class="d-flex justify-center">
-            <img src="{{ asset('/assets/images/soufKitchen.jpg') }}" alt="">
-        </div>
-        <div class="chooseClass">
-            <img src="{{ asset('/assets/images/friends.jpg') }}" alt="">
-            <h2>
-                تصنع منتجات بيت خيرات سوف من أيدي نساء أردنيات
-            </h2>
-        </div>
-        <div class="chooseClass">
-            <h2>
-                تحفظ في عبوات وأماكن مخصصة
-            </h2>
-            <img src="{{ asset('/assets/images/library.jpg') }}" alt="">
-        </div>
-        <div class="chooseClass">
-            <img src="{{ asset('/assets/images/kais.jpg') }}" alt="">
-            <h2>
-                تصلك مغلفة بإحكام جاهزة للأكل
-            </h2>
-        </div>
-    </section>
-
-    <section class="my-5">
-        <div class="chooseEatSuger container text-center py-2 my-5">
-            <h2 class="text-white">منتجات خالية من السكر تماما!</h2>
-        </div>
-    </section>
-
-
-    <section class="mt-5">
-        <div class="baitKhairatDate">
-            <h1 class="container">بيت خيرات سوف<br>قصة بدأت من عام ١٨٨١م <span><button class="knowBtn">اعرف
-                        عنها</button></span></h1>
         </div>
     </section>
 @endsection

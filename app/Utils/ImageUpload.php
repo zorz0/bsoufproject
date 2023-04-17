@@ -11,10 +11,10 @@ class ImageUpload{
         $height = $height ?? $heightDefault;
         $width = $width ?? $widthDefault;
         $image = Image::make($request->path());
-        $image->resize($height, $width, function ($constraint) {
+        $image->fit($height, $width, function ($constraint) {
             $constraint->upsize();
         })->stream();
         Storage::disk('public')->put($path.$imagename, $image);
-        return $imagename;
+        return 'public/'.$path.$imagename;
     }
 }

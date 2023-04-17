@@ -141,7 +141,8 @@
                                                     </li>
                                                     <li>
 
-                                                        <a href="{{ route('categories.destroy', ['id' => $category->id]) }}">
+                                                        <a
+                                                            href="{{ route('categories.destroy', ['id' => $category->id]) }}">
                                                             <i class="icon-docs"></i> حذف </a>
 
                                                     </li>

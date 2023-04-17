@@ -40,6 +40,18 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ Config::get('languages')[App::getLocale()] }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            @foreach (Config::get('languages') as $lang => $language)
+                                @if ($lang != App::getLocale())
+                                        <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
+                                @endif
+                            @endforeach
+                            </div>
+                        </li>
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -76,7 +88,7 @@
 
                         @endguest
                         @isset(Auth::user()->role)
-                            
+
                         @if(Auth::user()->role == 'user')
                         <li>
                             <a class="nav-icon position-relative text-decoration-none" href="{{ route('totalCards') }}">
@@ -95,6 +107,7 @@
                         @endif
 
                         @endisset
+
 
                     </ul>
                 </div>

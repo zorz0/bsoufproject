@@ -1,6 +1,7 @@
 @extends('layouts.admin_master')
 @extends('layouts.sidemenu')
 @section('content')
+@include('sweetalert::alert')
     <!-- BEGIN CONTENT -->
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
@@ -55,7 +56,7 @@
                 <div class="form-group col-md-6">
                     <label class="control-label">الشعار</label>
                     <input type="file" accept="image/" name="logo" />
-                    <img src="value='{{ $setting->logo }}'" width="50px" alt="">
+                    <img src="{{ $setting->logo }}" width="50px" alt="">
                 </div>
                 <div class="form-group col-md-6">
                     <label class="control-label">الصورة المصغرة بالرابط</label>
@@ -63,9 +64,9 @@
                     <img src="value='{{ $setting->favicon }}'" width="50px" alt="">
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label">صور البانر</label>
-                    <input type="file" accept="image/*" name="panerImgs" class="dropify" multiple />
-                    <img src="value='{{ $setting->panerImgs }}'" width="50px" alt="">
+                    <label class="control-label">صورة البانر</label>
+                    <input type="file" accept="image/" name="panerImgs" class="dropify" />
+                        <img src="value='{{ $setting->panerImgs }}'" width="50px" alt="">
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">البريد الالكتروني للموقع</label>

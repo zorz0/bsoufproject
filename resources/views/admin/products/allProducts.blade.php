@@ -151,6 +151,7 @@
 
                         @endforeach
                     </table>
+                    {{ $data->links() }}
                 </div>
             </div>
             <!-- END EXAMPLE TABLE PORTLET-->

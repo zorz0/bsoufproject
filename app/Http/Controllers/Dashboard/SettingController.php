@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Utils\ImageUpload;
 use Image;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SettingController extends Controller
 {
@@ -18,11 +19,20 @@ class SettingController extends Controller
     }
     public function update(settingUpdateRequest $request, Setting $setting)
     {
-        // dd($request);
         $setting->update($request->validated());
         if ($request->has('logo')) {
-         ImageUpload::uploadImage($request->logo);   
+            $logo = ImageUpload::uploadImage($request->logo, null, null, 'setting/');
+            $setting->update(['logo' => $logo]);
         }
+        if ($request->has('favicon')) {
+            $favicon = ImageUpload::uploadImage($request->favicon, null, null, 'setting/');
+            $setting->update(['favicon' => $favicon]);
+        }
+        if ($request->has('panerImgs')) {
+            $panerImgs = ImageUpload::uploadImage($request->panerImgs, null, null, 'setting/');
+            $setting->update(['panerImgs' => $panerImgs]);
+        }
+        Alert::success('تم تعديل البيانات بنجاح', 'يمكنك رؤية التعديل في الموقع');
         return redirect()->route('dashboard.settings.index')->with('success', 'تم تحديث الاعدادات بنجاح');
     }
 }

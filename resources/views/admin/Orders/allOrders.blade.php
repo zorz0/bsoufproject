@@ -88,8 +88,9 @@
                                 <th> اسم العميل </th>
                                 <th> عنوان الشحن </th>
                                 <th> تاريخ الطلب </th>
+                                <th> رقم الموبيل</th>
                                 <th> سعر الجملة </th>
-                                <th> سعر البيع </th>
+
                                 <th> الحالة </th>
                                 <th> الاجراءات </th>
                             </tr>
@@ -107,18 +108,20 @@
                                 </td>
                                 <td> {{$order->id}} </td>
                                 <td>
-                                    {{--  <a > {{$order->user()->name}} </a>  --}}
+                                    {{$order->name}}
                                 </td>
                                 <td>
                                     <span class="label label-sm label-success"> {{$order->address}}</span>
                                 </td>
                                 <td class="center"> {{$order->created_at}} </td>
+
                                 <td>
-                                    1000 ج
+                                    {{ $order->phone }}
                                 </td>
                                 <td>
-                                    1200 ج
+                                    {{ $order->total_price }} ج
                                 </td>
+
                                 <td>
                                     <div class="btn-group">
                                         @if($order->status=='accept')
@@ -134,17 +137,17 @@
                                      data-toggle="dropdown" aria-expanded="false"> مرفوض
                                      <i class="fa fa-angle-down"></i>
                                  </button>
-                                  @endif 
+                                  @endif
                                   @if ($order->status=='pendding')
-                                      
-                                  
+
+
                                         <button class="btn btn-xs yellow dropdown-toggle" type="button"
                                             data-toggle="dropdown" aria-expanded="false"> تحت المراجعة
                                             <i class="fa fa-angle-down"></i>
                                         </button>
 
 
-                                     
+
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
                                                 <a href="{{ route('update.status',['id'=>$order->id,'status'=>'accept']) }}">
@@ -154,7 +157,7 @@
                                                 <a href="{{ route('update.status',['id'=>$order->id,'status'=>'reject']) }}">
                                                     <i class="icon-tag"></i> مرفوض </a>
                                             </li>
-                                      
+
                                         </ul>
                                         @endif
                                     </div>

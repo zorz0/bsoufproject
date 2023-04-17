@@ -54,7 +54,7 @@
         <a href="#" class="u-align-center u-image u-logo u-image-1">
             <img src="{{asset('/assets/bks/')}}/images/logo.png" class="u-logo-image u-logo-image-1">
         </a>
-        
+
         <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
             <div class="menu-collapse u-custom-font">
                 <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-border-radius u-custom-borders u-custom-color u-custom-custom-border-radius u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-text-active-color u-custom-text-color u-custom-text-decoration u-custom-text-hover-color u-custom-text-shadow u-custom-top-bottom-menu-spacing u-nav-link"
@@ -78,31 +78,31 @@
                     <li class="u-nav-item">
                         <a class="mt-2 u-active-custom-color-2 u-bottom-left-radius-50 u-bottom-right-radius-50 u-button-style u-hover-custom-color-2 u-nav-link u-text-active-white u-text-hover-white"
                             href="{{url('/contact')}}">
-                            تواصل معنا
+                            {{ __('message.Concet us') }}
                         </a>
                     </li>
                     <li class="u-nav-item">
                         <a class="mt-2 u-active-custom-color-2 u-bottom-left-radius-50 u-bottom-right-radius-50 u-button-style u-hover-custom-color-2 u-nav-link u-text-active-white u-text-hover-white"
                             href="{{url('/about')}}">
-                            من نحن
+                           {{ __('message.About us') }}
                         </a>
                     </li>
                     <li class="u-nav-item active">
                         <a class="mt-2 u-active-custom-color-2 u-bottom-left-radius-50 u-bottom-right-radius-50 u-button-style u-hover-custom-color-2 u-nav-link u-text-active-white u-text-hover-white"
                             href="{{url('/')}}">
-                            الرئيسية
+                            {{ __('message.home') }}
                         </a>
                     </li>
                     <li class="u-nav-item">
                         <a class="mt-2 u-active-custom-color-2 u-bottom-left-radius-50 u-bottom-right-radius-50 u-button-style u-hover-custom-color-2 u-nav-link u-text-active-white u-text-hover-white"
                             href="{{url('/store')}}">
-                            المتجر
+                            {{ __('message.store') }}
                         </a>
                     </li>
                     <li class="u-nav-item">
                         <a class="mt-2 u-active-custom-color-2 u-bottom-left-radius-50 u-bottom-right-radius-50 u-button-style u-hover-custom-color-2 u-nav-link u-text-active-white u-text-hover-white"
                             href="{{url('/news')}}">
-                            أخبارنا
+                            {{ __('message.Our news') }}
                         </a>
                     </li>
                 </ul>

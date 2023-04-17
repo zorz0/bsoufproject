@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+
     <section class="u-clearfix u-section-1">
 
         <div>
@@ -131,17 +132,17 @@
                             @auth
 
                             @if(!empty($productSizes[0]))
-                                
-                            
+
+
                                 <select name="productSizeId" id="">
                                     @foreach ($productSizes as $size)
-                                    
+
                                         @if ($value->id == $size->product_id)
                                             <option value="{{ $size['id'] }}"> {{ $size['size'] }}</option>
                                         @endif
                                     @endforeach
                                 </select>
-                                
+
                                 <button type="submit"> اعرض المنتج</button>
 
                                 @endif

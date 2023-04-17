@@ -30,7 +30,7 @@ Route::get('/index', [IndexController::class, 'index'])->name('admin');
     Route::get('/settings', function () {
         return view('admin.settings');
 });
-Route::put('/settings/{setting}/update', 
+Route::put('/settings/{setting}/update',
 [SettingController::class, 'update'])
 ->name('admin.settings.update');
 Route::get('settings',[SettingController::class,"index"])->name('dashboard.settings.index');
@@ -55,6 +55,8 @@ Route::get('/users/delete/{id}', [UserController::class, 'destroy'])->name('user
 
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+// Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+
 Route::post('/dashboard/categories', [CategoryController::class, 'store'])->name('categories.store');
 Route::get('/dashboard/categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
 Route::post('/dashboard/categories/update/{id}', [CategoryController::class, 'update'])->name('categories.update');

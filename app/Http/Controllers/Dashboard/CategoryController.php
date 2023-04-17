@@ -13,10 +13,10 @@ class CategoryController extends Controller
     //     $this->middleware('auth');
     // }
 
-    public function index()
-    {
-        $categories = Category::all();
-        return view('admin.Categories.allCategories', ['categories' => $categories]);
+
+    public function index (){
+        $categories= Category::paginate(3);
+        return view('admin.Categories.allCategories',['categories'=> $categories]);
     }
 
     public function store(Request $request)
@@ -74,4 +74,7 @@ class CategoryController extends Controller
 
         return back();
     }
+
+ 
+
 }

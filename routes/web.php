@@ -69,3 +69,10 @@ Auth::routes();
  Route::get('/home', [HomeController::class,'index'])->name('home');
  Route::get('/news', [HomeController::class,'blogs'])->name('news');
  Route::get('/news/{id}', [HomeController::class,'blogDetails'])->name('news.details');
+
+
+
+
+
+ ////
+ Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => '\App\Http\Controllers\LanguageController@switchLang']);

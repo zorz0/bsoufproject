@@ -76,5 +76,22 @@ public function updateStatus( $id,$status){
 return back();
 
 }
+public function storeDashboardOrder (Request $request){
 
+
+$data=Order::create([
+    "user_id"=>$request["user_id"],
+    "total_price"=>$request["total_price"],
+    "address"=>$request["address"],
+    "phone"=>$request["phone"],
+    "name"=>$request["name"],
+    "postal_code"=>$request["postal_code"],
+    "shipping_price"=>$request["shipping_price"],
+  
+
+]);
+return redirect(route('orders.index'));
+
+}
+    
 }

@@ -126,7 +126,7 @@
                                             </li>
                                             @if($user->id != auth()->user()->id)
                                             <li>
-                                                <a href="{{route('users.destroy',['id'=>$user->id])}}">
+                                                <a href="{{route('users.destroy',['id'=>$user->id])}}" onclick="return confirm('هل انت متأكد من حذف هذا العضو ؟')">
                                                     <i class="icon-user"></i> حذف </a>
 
                                                 </li>

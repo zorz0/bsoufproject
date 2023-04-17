@@ -35,6 +35,7 @@
                         <div class="portlet-title">
                             <div class="caption">
                                 <i class="icon-settings font-dark"></i>
+                                {{-- <i class="fa-solid fa-circle-plus"></i> --}}
                                <a href="{{route('categories.create')}}"> <span class="caption-subject font-dark sbold uppercase">اضافة فئة جديدة</span>
                                </a>
                                
@@ -137,7 +138,7 @@
                                             </li>
                                             <li>
 
-                                                    <a href="{{route('categories.destroy',['id'=>$category->id])}}" >
+                                                    <a href="{{route('categories.destroy',['id'=>$category->id])}}"  onclick="return confirm('هل انت متأكد انك تريد حذف هذة الفئة؟?')" >
                                                         <i class="icon-docs"></i> حذف  </a>
 
                                             </li>

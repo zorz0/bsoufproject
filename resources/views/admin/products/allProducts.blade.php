@@ -137,7 +137,7 @@
                                             </li>
                                             <li>
 
-                                                   <a href="{{ route('product.destroy', $value->id) }}"> <i class="icon-trash"></i> حذف </a>
+                                                   <a href="{{ route('product.destroy', $value->id) }}" onclick="return confirm('هل انت متأكد انك تريد حذف هذا المنتج ؟')"> <i class="icon-trash"></i> حذف </a>
 
                                                 {{--  <a href="{{route('product.destroy',$value["id"])}}">
                                                     </a>  --}}

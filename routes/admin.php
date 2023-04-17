@@ -55,6 +55,7 @@ Route::get('/users/delete/{id}', [UserController::class, 'destroy'])->name('user
 
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
 Route::post('/dashboard/categories', [CategoryController::class, 'store'])->name('categories.store');
 Route::get('/dashboard/categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
 Route::post('/dashboard/categories/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
@@ -87,6 +88,7 @@ Route::post('productSize/store',[ProductSizeController::class,'store'])->name('p
 // orders Routes
 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 Route::get('/orders/create', [OrderController::class, 'create'])->name('orders.create');
+Route::post('/orders/store', [OrderController::class, 'storeDashboardOrder'])->name('orders.store');
 
 Route::get('/update/status/{id}/{status}', [OrderController::class, 'updateStatus'])->name('update.status');
 

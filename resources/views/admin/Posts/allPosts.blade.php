@@ -117,7 +117,7 @@
                                             </li>
                                             <li>
                                                 <a href="{{route('posts.destroy',['id'=>$blog->id])}}">
-                                                    <i class="icon-docs"></i> حذف </a>
+                                                    <i class="icon-docs" onclick="return confirm('هل انت متأكد انك تريد حذف هذا المقال ؟')"></i> حذف </a>
                                             </li>
                                             {{-- <li>
                                                 <a href="javascript:;">
@@ -141,7 +141,7 @@
 
                             @endforeach
 
-
+                            {{$blogs->links()}}
 
                             {{-- we get them from data base  --}}
                             {{-- <tr class="odd gradeX">
@@ -970,5 +970,5 @@
 <!-- END CONTENT -->
 @endsection
 @push('custom-scripts')
-<script src="{{asset('/assets')}}/pages/scripts/table-datatables-managed.min.js" type="text/javascript"></script>
+{{-- <script src="{{asset('/assets')}}/pages/scripts/table-datatables-managed.min.js" type="text/javascript"></script> --}}
 @endpush

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class CategoryController extends Controller
 {
@@ -13,7 +15,7 @@ class CategoryController extends Controller
     // }
 
     public function index (){
-        $categories= Category::all();
+        $categories= Category::paginate(5);
         return view('admin.Categories.allCategories',['categories'=> $categories]);
     }
 
@@ -30,12 +32,17 @@ Category::create([
     'image' => $imageName,
 
 ]);
-        return back();
+return redirect(route('categories.index' ));
     }
 
     public function edit(Category $id){
-        $categories= Category::all();
-        return view('admin.Categories.allCategories',['category'=>$id , 'categories'=>$categories]);
+       
+        return view('admin.Categories.editCategoryForm',['category'=>$id ]);
+
+    }
+
+    public function create(){
+        return view('admin.Categories.addCategoryForm');
 
     }
     public function update(Request $request, Category $id){
@@ -56,7 +63,7 @@ Category::create([
 
             ]);
         }
-        return redirect(route('categories.index' ,[ 'categories'=>$categories]));
+        return redirect(route('categories.index' ));
 
     }
 

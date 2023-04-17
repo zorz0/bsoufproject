@@ -7,6 +7,7 @@ use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use RealRashid\SweetAlert\Facades\Alert;
 
 use function PHPUnit\Framework\isNull;
 

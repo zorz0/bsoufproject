@@ -211,7 +211,7 @@
                                 </td>
                             </tr>
 @endforeach
-
+{{ $categories->links() }}
                             {{-- they will come from database --}}
                             {{-- <tr class="odd gradeX">
                                 <td>
